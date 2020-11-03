@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Orders</title>
+    <style>
+      .col-md-4 {
+          -ms-flex: 0 0 33%;
+          flex: 0 0 33%;
+          max-width: 33%;
+          margin: 0.11%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div class="row">
+
+        <%  data.forEach(sitem => { %>
+        <div class="card col-md-4 mt-4">    
+        <div class="">
+            <div class="card-body">
+              <h5 class="card-title">Table No# <%= sitem.table_no %></h5>
+              <p class="card-title">Time: <%= sitem.created %></hp>
+              <p class="card-title">Status: <%= sitem.current_state %></hp>
+              <p class="card-text">
+
+                <ul class="list-group">
+                   <%  sitem.items.forEach(item => {  %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%  items.forEach(i => { if(item.item == i._id){  %>
+                                    <%- i.item  %>
+                            <% } }) %>
+
+                      <span class="badge badge-primary badge-pill"><%= item.qty %></span>
+                    </li>
+                    <% }) %>
+                  </ul>
+
+              </p>
+              <% if( sitem.current_state=='sentToKitchen' ){ %>
+
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Waiting Approval
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/accept_order/<%- sitem._id  %>">Accept</a>
+                    <a class="dropdown-item" href="/reject_order/<%- sitem._id  %>">Reject</a>
+                  </div>
+                </div>
+
+        
+              <% }else if(sitem.current_state=='inKitchen'){ %>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Change Status
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/change_order/<%- sitem._id  %>/prepared">Prepared</a>
+                  </div>
+                </div>
+                
+             <% }else if(sitem.current_state=='prepared'){ %>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Change Status
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/change_order/<%- sitem._id  %>/served">Served</a>
+                </div>
+              </div>
+              
+        
+           <% }else if(sitem.current_state=='served'){ %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Change Status
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/paid_order/<%- sitem._id  %>">Paid</a>
+              </div>
+            </div>
+            
+         <% } %>
+
+            </div>
+          </div>
+        </div>
+          <% }) %>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+    <script>
+      
+      setTimeout(function(){
+        window.location.reload(1);
+      }, 5000);
+
+
+    </script>
+  
+
+  </body>
+</html>

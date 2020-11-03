@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'FS Lola';
+    src: url('FSLola.eot');
+    src: url('FSLola.eot?#iefix') format('embedded-opentype'),
+        url('FSLola.woff2') format('woff2'),
+        url('FSLola.woff') format('woff'),
+        url('FSLola.ttf') format('truetype'),
+        url('FSLola.svg#FSLola') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+

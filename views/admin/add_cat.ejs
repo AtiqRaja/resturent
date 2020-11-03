@@ -1,0 +1,32 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/header.ejs %>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Add Categories</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+          <div class="col-md-5">
+            <div>
+                <a href="/admin/menu/category/add_parent" class="btn btn-lg btn-md">
+                    Add Parent Category
+                </a>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div>
+                <a href="#" class="btn btn-lg btn-md">
+                    Add Child Category
+                </a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
+  
+</body>
+
+</html>

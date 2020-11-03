@@ -1,0 +1,50 @@
+<% include includes/header.ejs %>
+
+<style>
+    .bordered{
+    padding: 20px;
+    border: 2px solid #ffffff6b;
+    border-radius: 10px;
+    font-size: 4em;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    }
+</style>
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 style="font-size:4em; color:white;" class="font-weight-light">The Aitropolis Resaurant</h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="pingpong" class="col-md-4 bordered animated bounceInLeft" style="height: 150px;">
+            PingPong
+        </div>
+        <div id="hockey" class="col-md-4 bordered animated bounceInRight" style="height: 150px;">
+            Air Hockey
+        </div>
+        <div class="col-md-2"></div>
+        
+        </div>
+    </div>
+
+
+<% include includes/footer.ejs %>
+
+
+<script>
+    $('#hockey').click(function () {
+        window.location = "/hockey";  
+    })
+    $('#pingpong').click(function () {
+        window.location = "/pingpong";  
+    })
+
+</script>

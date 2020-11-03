@@ -1,0 +1,135 @@
+<% include includes/header.ejs %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha256-siyOpF/pBWUPgIcQi17TLBkjvNgNQArcmwJB8YvkAgg=" crossorigin="anonymous" />
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container product">
+        <div class="block">
+        <h1 class="mt-5 mb-3" style="text-align:center;font-size: 3em;">Celebrate your moments with Us</h1>
+
+        <% if(status){ %>
+            <div class="alert alert-light w-75 mx-auto" role="alert">
+                <b>Thank You</b>, We will get back to you with your celebration details.
+              </div>
+        <%  }  %>
+
+        <p class="text-center mt-3 mb-3 pl-5 pr-5" style="font-size: 1.3em;">
+          At Asuman you will have a truly unique celebration, Special service, great plates, and delightful atmosphere.  
+                    <br>Book Your Day Now!
+
+        </p>
+              
+        <div class="row">
+            
+            <div class="col-md-6">
+
+              <div class="demo">
+                <div class="item">            
+                    <div class="clearfix" style="max-width:450px; margin:0 auto">
+                        <ul id="product-gallery" class="gallery list-unstyled cS-hidden">
+                          <li data-thumb="../../web/img/celebration.jpg"> 
+                            <img src="../../web/img/celebration.jpg" />
+                             </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="col-md-6">
+              <form
+              class="contact-form d-flex flex-column align-items-center"
+              action="/celebrate"
+              method="POST">
+
+              <div class="form-group w-75">
+                <input
+                  type="name"
+                  class="form-control"
+                  placeholder="Name"
+                  name="name"
+                  required
+                />
+              </div>
+
+              <div class="form-group w-75">
+                  <input
+                    type="name"
+                    class="form-control"
+                    placeholder="Mobile"
+                    name="mobile"
+                    required
+                  />
+                </div>
+
+              <div class="form-group w-75">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  required
+                />
+              </div>
+
+              <div class="form-group w-75">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="No. of Person"
+                  name="noOfPerson"
+                  required
+                />
+              </div>
+
+              <div class="form-group w-75">
+                  <div class="input-group date" data-provide="datepicker">
+                      <input placeholder="Date of Celebration" name="celbrationDate" type="text" class="form-control">
+                      <div class="input-group-addon">
+                          <span class="glyphicon glyphicon-th"></span>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="form-group w-75">
+                <textarea
+                  class="form-control"
+                  type="text"
+                  placeholder="Please specify the time and your requirements here."
+                  rows="7"
+                  name="message"
+                  required
+                ></textarea>
+              </div>
+  
+              <button style="background:#311500; color:#fff" type="submit" class="btn btn-submit w-75">Submit</button>
+            </form>
+
+          </div>
+
+        </div>
+            
+
+        <div class="mx-auto mt-3">
+          
+        </div>
+    </div>
+        
+    </div>
+    <div class="product-sub-1"></div>
+    <div class="product-sub-2"></div>
+
+<% include includes/footer.ejs %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+
+<script>
+    $('.datepicker').datepicker();
+</script>

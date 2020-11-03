@@ -1,0 +1,78 @@
+
+<footer class="mb-5 mt-5" id="contact">
+    <div class="container">
+        <div class="footer-inner d-none">
+            
+                         <div class="d-flex justify-content-center mt-5 mb-5">
+                <div class="p-4"><a href="#" target="_blank" ><img src="../../web/img/facebook.svg" alt="facebook"></a></div>
+                <div class="p-4"><a href="#" target="_blank"><img src="../../web/img/instagram.svg" alt="instagram"></a></div>
+              </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+  <script src="../../web/vendor/jquery/jquery.min.js"></script>
+  <script src="../../web/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="../../web/slider/js/lightslider.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+        $('#product-gallery').lightSlider({
+            gallery:true,
+            item:1,
+            addClass:'img-fluid',
+            thumbItem:4,
+            slideMargin: 0,
+            speed:500,
+            auto:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#product-gallery').removeClass('cS-hidden');
+                }  
+            });
+        });
+    </script>
+
+    <script>
+
+$('#order').click(function () {
+        var item_id = $('#item_id').val();
+        var quat = $('#qunatity').val();
+        request = $.ajax({
+                url: "/add_to_cart",
+                type: "post",
+                data: { item: item_id, qty: quat }
+            });
+
+            // Callback handler that will be called on success
+            request.done(function (response, textStatus, jqXHR){
+                // Log a message to the console
+                console.log("Hooray, it worked!");
+                msg = '<div class="alert alert-warning alert-dismissible fade show" role="alert">'
+                                +'<strong>Holy guacamole!</strong> Food cart updated                .'
+                                +'<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+                                  +'<span aria-hidden="true">&times;</span></button></div>'
+                $('#msg').html(msg);
+            });
+
+            // Callback handler that will be called on failure
+            request.fail(function (jqXHR, textStatus, errorThrown){
+                // Log the error to the console
+                console.error(
+                    "The following error occurred: "+
+                    textStatus, errorThrown
+                );
+            });    
+   
+        })
+
+
+            
+
+    </script>
+  
+</body>
+
+</html>

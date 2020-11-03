@@ -1,0 +1,62 @@
+<% include includes/header.ejs %>
+
+<style>
+.list-group-item, .card{
+    background-color: #fff0;
+}
+
+</style>
+
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container product">
+
+    <div class="container">
+        <div class="row">
+    
+            <%  data.forEach(sitem => { if(sitem.current_state != 'onTable' && sitem.current_state != 'served' ) %>
+
+            <div class="card col-md-4 mt-4">    
+            <div class="">
+                <div class="card-body">
+                  <h5 class="card-title">Table No# <%= sitem.table_no %></h5>
+                  <p class="card-title">Time: <%= sitem.created %></hp>
+                  <h5 class="card-title">Status: <%= sitem.current_state %></h5>
+                  <p class="card-text">
+    
+                    <ul class="list-group">
+                       <%  sitem.items.forEach(item => {  %>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <%  items.forEach(i => { if(item.item == i._id){  %>
+                                        <%- i.item  %>
+                                <% } }) %>
+    
+                          <span class="badge badge-primary badge-pill"><%= item.qty %></span>
+                        </li>
+                        <% }) %>
+                      </ul>
+    
+                  </p>
+
+    
+                </div>
+              </div>
+            </div>
+              <% }) %>
+            </div>
+        </div>
+
+    </div>
+  
+<% include includes/footer.ejs %>
+
+<script>
+    
+</script>

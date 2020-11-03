@@ -1,0 +1,133 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/header.ejs %>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Edit Parent Category</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+            <%- messages('message', locals) %>
+            <form method="POST" action="/menu/category/edit_parent" enctype="multipart/form-data">
+              <input type="hidden" name="parent_id" value="<%- cat._id %>">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Category Title</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" value="<%- cat.title %>" name="cat_title" placeholder="Category Title">
+                </div>
+              </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Status</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" name="status" value="active" <%- (cat.status == 'active') ? 'checked':'' %> >
+                      <label class="form-check-label" for="gridRadios1">
+                        Active
+                      </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" value="deactive" name="status" <%- (cat.status == 'deactive') ? 'checked':'' %> >
+                      <label class="form-check-label" for="gridRadios2">
+                        Deactive
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <div class="form-group row">
+                <div class="col-sm-2">Website Image</div>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input type="file" class="form-control-file" name="web_img">
+                  </div>
+                    <% if(cat.web_img){ %>
+                        <input type="hidden" name="web_img_old_" id="web_img_old" value="<%- cat.web_img %>">
+                        <img id="web_img" class="mt-3" style="max-width: 200px;" src="/uploads/<%- cat.web_img %>" alt="">
+                        <div id="web_img_btn" class="btn btn-sm btn-primary">Remove</div>
+                    <% } %>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                <div class="col-sm-2">Backgroud Images</div>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input type="file" class="form-control-file" name="bg_img" multiple>
+                    <input type="hidden" id="bg_img_old" name="bg_img_old" value="<%- cat.bg_img %>">
+                  </div>
+                  <% if(cat.bg_img){ cat.bg_img.forEach(element => { %>
+                    <div class="element">
+                        <img id="mob_img" class="mt-3" style="max-width: 200px;" src="/uploads/<%- element %>" alt="">
+                        <div id="<%- element %>" onclick="removeFromArray(this.id)" class="btn btn-sm btn-primary remove">Remove</div>
+                    </div>
+                  <% }); } %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+            <a href="/admin/menu/category/del_parent/<%- cat._id %>" class="btn btn-primary">Delete</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
+
+  <script>
+      $(document).on('click', '.remove', function(e) {
+            e.preventDefault();
+            $(this).closest('.element').remove();
+            return false;
+        });
+      var bg_array = [];
+    
+      $(document).ready(function () {
+
+        $('#web_img_btn').click(function () {
+          $('#web_img_old').val("");
+          $('#web_img'). attr("src", "");
+          $('#web_img_btn').hide();
+        });
+
+        
+        bgs = $('#bg_img_old'). val();
+        bg_array = bgs.split(',');
+        console.log(bg_array);
+
+    });
+
+    
+
+    function removeFromArray(bg) {
+        
+            $(this).closest('.element').remove();
+            bgs = $('#bg_img_old'). val();
+            bg_array = bgs.split(',');
+            remove(bg);
+            $('#bg_img_old'). val(String(bg_array));
+            
+    }
+
+    function remove( what) {
+        
+        var found = bg_array.indexOf(what);
+        while (found !== -1) {
+                bg_array.splice(found, 1);
+                found = bg_array.indexOf(what);
+            }
+            console.log(bg_array);
+            
+    }
+
+
+  </script>
+
+</body>
+
+</html>

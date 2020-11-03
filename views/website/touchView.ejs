@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Table Talk </title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+        <link href="../../touch/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="back animated fadeIn slower">
+            <div class="tableDisplay">
+                <div class="verticalAlign">
+                    <div class="row">
+                        <div class="rotateText textDiv heightDiv">
+                            <div id="upText1" class="animated slideInRight slower">
+                                <h1> Good Food is a Good Mood </h1>
+                            </div>   
+                            <div class="hide" id="upText2">
+                                <h1> Intrested to know the Secret Ingredient? </h1>
+                            </div> 
+                            <div class="hide" id="upTouch">
+                                <div class="ripple">
+                                    <div class="text">
+                                        <span> TOUCH </span>
+                                        <span> TO </span>
+                                        <span> INTERACT </span> 
+                                    </div>
+                                    <div class="image animated pulse faster infinite">
+                                        <img src="../../touch/images/hand.png" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hide" id="upTable">
+                                <div class="tableImgUp animated zoomIn slower">
+                                    <div id="umenu">
+                                    <div class="hide whiteBackgroup text animated zoomIn slower" id="textR">
+                                        <span> Call for Table Service </span>
+                                    </div>
+                                    <div class="hide whiteBackgroup text1 animated zoomIn slower" id="textR1">
+                                        <span> Chef'Special </span>
+                                    </div>
+                                    <div class="hide whiteBackgroup text2 animated zoomIn slower" id="textR2">
+                                        <span> Today's Menu </span>
+                                    </div>
+                                    <div class="hide whiteBackgroup text3 animated zoomIn slower" id="textR3">
+                                        <span> We know your Taste </span>
+                                    </div>
+                                    <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
+                                </div>
+                                </div>
+                                <div id="umenu1" class="hide">
+                                    <div class="animated zoomIn slower">
+                                        <img src="../../touch/images/backText.png" class="uchefImg animated rotateIn slower" >
+                                        
+                                        <!-- <span class="backText"> BACK </span> -->
+                                    </div>
+                                    <img src="../../touch/images/circle-menu.png" class="umenuImg hide" id="umenuImg">
+                                    <div class="hide umenuText" id="umenuText">
+                                        <%  items.forEach(i => { %>
+                                            <div class="row uparent" id="<%- i._id %>">
+                                                <div class="col-md-7">  <%- i.title %> </div>
+                                                <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
+                                            </div>
+                                         <% }); %>
+                                              
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="container">
+                        <img src="../../touch/images/line.png" class="img-fluid animated zoomIn slower" >
+                    </div>
+                    <div class="row">
+                        <div class="textDiv heightDiv">
+                            <div id="downText1" class="animated slideInRight slower">
+                                <h1> What to know what's special today? </h1>
+                            </div>
+                            <div class="hide" id="downText2">
+                                <h1> Our aim is to offer Simple, Fresh, Good Food. </h1>
+                            </div>
+                            <div class="hide" id="downTouch">
+                                <div class="ripple" style="width: 23% !important;">
+                                    <div class="text">
+                                        <span> TOUCH </span>
+                                        <span> TO </span>
+                                        <span> INTERACT </span> 
+                                    </div>
+                                    <div class="image animated pulse faster infinite">
+                                        <img src="../../touch/images/hand.png" >
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="hide" id="downTable">
+                                <div class="tableImgDown animated zoomIn slower">
+                                    <div id="menu">
+                                        <div class="hide whiteBackgroup text animated zoomIn slower" id="text">
+                                            <span> Call for Table Service </span>
+                                        </div>
+                                        <div class="hide whiteBackgroup text1 animated zoomIn slower" id="text1">
+                                            <span> Chef'Special </span>
+                                        </div>
+                                        <div class="hide whiteBackgroup text2 animated zoomIn slower" id="text2">
+                                            <span> Today's Menu </span>
+                                        </div>
+                                        <div class="hide whiteBackgroup text3 animated zoomIn slower" id="text3">
+                                            <span> We know your Taste </span>
+                                        </div>
+                                        <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
+                                    </div>
+                                    <div id="menu1" class="hide">
+                                        <div class="animated zoomIn slower">
+                                            <img src="../../touch/images/backText.png" class="chefImg animated rotateIn slower" >
+                                            
+                                            <!-- <span class="backText"> BACK </span> -->
+                                        </div>
+                                        <img src="../../touch/images/circle-menu.png" class="menuImg hide" id="menuImg">
+                                        <div class="hide menuText" id="menuText">
+                                            <%  items.forEach(i => { %>
+                                                <div class="row parent" id="<%- i._id %>">
+                                                    <div class="col-md-7">  <%- i.title %> </div>
+                                                    <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
+                                                </div>
+                                             <% }); %>
+                                                  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</div>
+    </div>
+    
+    <div class="sidebar">
+        <div class="sidebar-icon">
+            <a style="top: 120px;" href="/ordersInKitchen">
+                <i class="fa fa-utensil-spoon my-float"></i>
+            </a>
+        </div>
+        <div class="sidebar-icon">
+            <a href="/cart">
+                <i class="fa fa-shopping-basket my-float"></i>
+                </a>
+            </div>        
+        <div class="sidebar-icon">
+            <a href="/games">
+                <i class="fa fa-play my-float"></i>
+                </a>
+            </div>        
+        <div class="sidebar-icon">
+            <a href="/news">
+                <i class="fa fa-newspaper my-float"></i>
+                </a>
+            </div>        
+    </div>
+
+	</body>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script type="text/javascript">
+        setTimeout(() => {
+            $('#upText1').removeClass('slideInRight');
+            $('#upText1').addClass('fadeOutLeft slower');
+        }, 2000)
+        setTimeout(() => {
+            $('#upText2').removeClass('hide');
+            $('#upText2').addClass('animated slideInLeft slower');
+        }, 4000)
+        setTimeout(() => {
+            $('#downText1').removeClass('slideInRight');
+            $('#downText1').addClass('fadeOutRight slower');
+        }, 4500)
+        setTimeout(() => {
+            $('#downText2').removeClass('hide');
+            $('#downText2').addClass('animated slideInLeft slower');
+        }, 6500)
+        setTimeout(() => {
+            $('#downText2').removeClass('animated slideInLeft slower');
+            $('#downText2').addClass('animated fadeOutRight slower');
+        }, 9500)
+        setTimeout(() => {
+            $('#downTouch').removeClass('hide');
+            $('#downTouch').addClass('animated zoomIn slower')
+        }, 11200)
+        setTimeout(() => {
+            $('#upText2').removeClass('animated slideInLeft slower');
+            $('#upText2').addClass('animated fadeOutRight slower');
+        }, 11500)
+       
+        setTimeout(() => {
+            $('#upTouch').removeClass('hide');
+            $('#upTouch').addClass('animated zoomIn slower')
+        }, 13300)
+        $('#downTouch').click(() => {
+            $('#downTouch').addClass('hide');
+             $('#downTable').removeClass('hide');
+            setTimeout(() => {
+                $('#text').removeClass('hide');
+            }, 1000)
+            setTimeout(() => {
+                $('#text1').removeClass('hide');
+            }, 1500)
+            setTimeout(() => {
+                $('#text2').removeClass('hide');
+            }, 2000)
+            setTimeout(() => {
+                $('#text3').removeClass('hide');
+            }, 2500)
+        })
+        $('#upTouch').click(() => {
+            $('#upTouch').addClass('hide');
+            $('#upTable').removeClass('hide');
+            setTimeout(() => {
+                $('#textR').removeClass('hide');
+            }, 1000)
+            setTimeout(() => {
+                $('#textR1').removeClass('hide');
+            }, 2000)
+            setTimeout(() => {
+                $('#textR2').removeClass('hide');
+            }, 2000)
+            setTimeout(() => {
+                $('#textR3').removeClass('hide');
+            }, 2500)
+        })
+
+        $('.chefImg').click(() => {
+            $('#menu1').addClass('hide')
+            $('#menu').removeClass('hide')
+            $('.chefImg').addClass('hide');
+            $('.chefImg').removeClass('hide');
+
+            setTimeout(() => {
+                $('#menuImg').addClass('hide')
+                $('#menuText').addClass('hide')
+            }, 1500)
+
+            setTimeout(() => {
+                $('#text').removeClass('hide');
+            }, 1000)
+            setTimeout(() => {
+                $('#text1').removeClass('hide');
+            }, 1500)
+            setTimeout(() => {
+                $('#text2').removeClass('hide');
+            }, 2000)
+            setTimeout(() => {
+                $('#text3').removeClass('hide');
+            }, 2500)
+        })
+
+        $('.uchefImg').click(() => {
+            $('#umenu1').addClass('hide')
+            $('#umenu').removeClass('hide')
+            $('.uchefImg').addClass('hide');
+            $('.uchefImg').removeClass('hide');
+
+            setTimeout(() => {
+                $('#umenuImg').addClass('hide')
+                $('#umenuText').addClass('hide')
+            }, 1500)
+
+            setTimeout(() => {
+                $('#text').removeClass('hide');
+            }, 1000)
+            setTimeout(() => {
+                $('#text1').removeClass('hide');
+            }, 1500)
+            setTimeout(() => {
+                $('#text2').removeClass('hide');
+            }, 2000)
+            setTimeout(() => {
+                $('#text3').removeClass('hide');
+            }, 2500)
+        })
+
+        $('#text1').click(() => {
+            $('#menu').addClass('hide')
+            $('#menu1').removeClass('hide')
+            setTimeout(() => {
+                $('#menuImg').removeClass('hide')
+                $('#menuImg').addClass('animated fadeIn slower')
+                $('#menuText').removeClass('hide')
+                $('#menuText').addClass('animated fadeInLeft slower')
+            }, 1500)
+        })
+
+        $('#text2').click(() => {
+            $('#menu').addClass('hide')
+            $('#menu1').removeClass('hide')
+            setTimeout(() => {
+                $('#menuImg').removeClass('hide')
+                $('#menuImg').addClass('animated fadeIn slower')
+                $('#menuText').removeClass('hide')
+                $('#menuText').addClass('animated fadeInLeft slower')
+            }, 1500)
+        })
+
+        $('#textR1').click(() => {
+       
+            $('#umenu').addClass('hide')
+            $('#umenu1').removeClass('hide')
+            setTimeout(() => {
+                $('#umenuImg').removeClass('hide')
+                $('#umenuImg').addClass('animated fadeIn slower')
+                $('#umenuText').removeClass('hide')
+                $('#umenuText').addClass('animated fadeInLeft slower')
+            }, 1500)
+        });
+
+        $('#textR2').click(() => {
+       
+            $('#umenu').addClass('hide')
+            $('#umenu1').removeClass('hide')
+            setTimeout(() => {
+                $('#umenuImg').removeClass('hide')
+                $('#umenuImg').addClass('animated fadeIn slower')
+                $('#umenuText').removeClass('hide')
+                $('#umenuText').addClass('animated fadeInLeft slower')
+            }, 1500)
+        });
+
+
+        $(".parent").click(function(){
+             p_id = $(this).attr('id')
+
+             $.post("/get_items",{
+                        parent:p_id
+                    },
+                    function(_data, status){
+                        console.log(_data , "\nStatus: " + status);
+                             target = $('#menuText');
+                             $(target).empty();
+                       
+                        if (_data.items.length > 0 ) {
+                            if(typeof(_data.items) != "undefined"){
+                                        _data.items.forEach(element => {    
+                                            console.log(element);
+                                            $('<div class="row">'+
+                                                '<div class="col-md-2"><img src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg"></div>'+
+                                                    '<div class="col-md-6">' +element.item+ '</div>'+
+                                                    '<div class="col-md-4 addToCart" id="' +element._id+ '"> <i class="fa fa-shopping-basket"><span></span></i></div></div>').appendTo(target);
+
+                                        });
+                                    }
+                            }
+                    });
+            
+        })
+
+        $(".uparent").click(function(){
+             p_id = $(this).attr('id')
+
+             $.post("/get_items",{
+                        parent:p_id
+                    },
+                    function(_data, status){
+                        console.log(_data , "\nStatus: " + status);
+                             target = $('#umenuText');
+                             $(target).empty();
+                       
+                        if (_data.items.length > 0 ) {
+                            if(typeof(_data.items) != "undefined"){
+                                        _data.items.forEach(element => {    
+                                            console.log(element);
+                                            $('<div class="row">'+
+                                                '<div class="col-md-2"><img src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg"></div>'+
+                                                    '<div class="col-md-6">' +element.item+ '</div>'+
+                                                    '<div class="col-md-4 addToCart" id="' +element._id+ '"> <i class="fa fa-shopping-basket"><span></span></i></div></div>').appendTo(target);
+
+                                        });
+                                    }
+                            }
+                    });
+            
+        })
+
+        $("#menuText").on('click','.addToCart',function () {
+            
+            var item_id = $(this).attr('id');
+        
+            request = $.ajax({
+                    url: "/add_to_cart",
+                    type: "post",
+                    data: { item: item_id, qty: 1 }
+                });
+
+                // Callback handler that will be called on success
+                request.done(function (response, textStatus, jqXHR){
+                    // Log a message to the console
+                    $('#'+item_id).html('<span style="font-size:10px">Cart Updated!</span>');
+                    setTimeout(() => {
+                        $('#'+item_id).html('');
+                        $('#'+item_id).html('<i class="animated fadeIn slower fa fa-shopping-basket"><span></span></i>');
+               
+            }, 2000)   
+                });
+
+                // Callback handler that will be called on failure
+                request.fail(function (jqXHR, textStatus, errorThrown){
+                    // Log the error to the console
+                    console.error(
+                        "The following error occurred: "+
+                        textStatus, errorThrown
+                    );
+                });    
+   
+        })
+
+        $("#umenuText").on('click','.addToCart',function () {
+            
+            var item_id = $(this).attr('id');
+        
+            request = $.ajax({
+                    url: "/add_to_cart",
+                    type: "post",
+                    data: { item: item_id, qty: 1 }
+                });
+
+                // Callback handler that will be called on success
+                request.done(function (response, textStatus, jqXHR){
+                    // Log a message to the console
+                    $('#'+item_id).html('<span style="font-size:10px">Cart Updated!</span>');
+                    setTimeout(() => {
+                        $('#'+item_id).html('');
+                        $('#'+item_id).html('<i class="animated fadeIn slower fa fa-shopping-basket"><span></span></i>');
+               
+            }, 2000)   
+                });
+
+                // Callback handler that will be called on failure
+                request.fail(function (jqXHR, textStatus, errorThrown){
+                    // Log the error to the console
+                    console.error(
+                        "The following error occurred: "+
+                        textStatus, errorThrown
+                    );
+                });    
+   
+        })
+    </script>
+</html>

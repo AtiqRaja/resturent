@@ -1,0 +1,38 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+     <% if(parent !== undefined){ %>   
+        <h1 class="text-center menu-heading"><%- parent  %></h1>
+    <% } %>
+    <div class="row">
+        <% 
+            items.forEach(item => { %>
+
+                <div class="col-lg-4 mt-3 product-list animated fadeInUp">
+                    <a href="/menu/item/<%- item._id  %>">
+                        <img class="img-fluid product-image" src="../uploads/<%- item.web_img[0]  %>" alt="">
+                        <div class="product-dec">
+                            <span class="name"><%- item.item  %></span>
+                            <span class="price">
+                                <span class="amount"><%- item.price  %></span>
+                                <span class="cur">AED + VAT</span>
+                            </span>
+                        </div>
+                        
+                    </a>
+                </div>
+
+         <%   });  %>
+        
+        </div>
+    </div>
+
+<% include includes/footer.ejs %>

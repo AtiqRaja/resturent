@@ -1,0 +1,30 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 style="font-size:4em; color:white;" class="font-weight-light">The Aitropolis Resaurant</h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <form action="getTableNumber" method="POST" >
+                <div class="form-group">
+                  <label style="color: white;" for="exampleInputEmail1">Enter Table Number:</label>
+                  <input name="table_no" type="text" class="form-control" placeholder="Enter table number" required>
+                </div>
+            
+              
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+        <div class="col-md-2"></div>
+        
+        </div>
+    </div>
+
+<% include includes/footer.ejs %>

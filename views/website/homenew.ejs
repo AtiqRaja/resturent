@@ -1,0 +1,222 @@
+<% include includes/header.ejs %>
+
+<style>
+    input, select {
+    background-color: #eee;
+    border: none;
+    font-family: sans-serif;
+    color: #000;
+    padding: 15px 32px !important;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px !important;
+}
+.bordered{
+    padding: 20px;
+    border: 2px solid #ffffff6b;
+    border-radius: 10px;
+    }
+
+    .calls{
+        color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    }
+    .calls .fa{
+        font-size: 1.8em;
+        float: right;
+    }
+
+    .float , .float-left{
+        /* display: none; */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="slideFromLeft">
+        <div class="row">
+            <div class="col-md-8 bordered animated bounceInLeft" style="height: 400px;">
+
+                <div class="form-group">
+                    <label style="font-size:2em; color:white;" class="font-weight-light animated pulse" id="output"></label>
+                    <input id="input" style="width: 50%;" class="form-control form-control-lg"  type="text" id="input" value="">
+                  </div>
+
+                <div id="needWater" style="display:none">
+                    <br>
+                    <button id="waterYes" class="btn btn-lg btn-primary w-50">Yes</button>
+                    <br>
+                    <button id="waterNo" class="btn btn-lg btn-primary mt-3 w-50">No</button>
+                </div>
+                <div id="chillWater" style="display:none">
+                    <br>
+                    <button id="chillYes" class="btn btn-lg btn-primary w-50">Yes</button>
+                    <br>
+                    <button id="chillNo" class="btn btn-lg btn-primary mt-3 w-50">No</button>
+                </div>
+                <div id="tableClean" style="display:none">
+                    <br>
+                    <button id="cleanYes" class="btn btn-lg btn-primary w-50">Yes</button>
+                    <br>
+                    <button id="cleanNo" class="btn btn-lg btn-primary mt-3 w-50">No</button>
+                </div>
+                <div id="decideMenu" style="display:none">
+                    <br>
+                    <button id="special" class="btn btn-lg btn-primary w-50">Yes</button>
+                    <br>
+                    <button id="normal" class="btn btn-lg btn-primary mt-3 w-50">No</button>
+                </div>
+            </div>
+
+            <div class="col-md-3 ml-3  animated bounceInRight">
+                <div id="toMenu" class="bordered calls">
+                    Open Menu  <i class="fa fa-utensil-spoon float-right"></i>
+                </div>
+                <div id="play" class="bordered mt-3 calls">
+                    Call Waiter <i class="fa fa-user"></i>
+                </div>
+                <div id="playGame" class="mt-3 bordered calls">
+                    Play Games <i class="fa fa-play"></i>
+                </div>
+                <div id="readNews" class="mt-3 bordered calls">
+                    Read News <i class="fa fa-newspaper"></i>
+                </div>
+            </div>
+        
+            
+            </div>
+    </div>    
+    </div>
+
+    <div class="qr">
+        
+    </div>
+
+<% include includes/footer.ejs %>
+
+<script>
+    $('#readNews').click(function () {
+        window.location = "/news";  
+    })
+    $('#playGame').click(function () {
+        window.location = "/game";  
+    })
+
+    $('#toMenu').click(function () {
+        window.location = "/menu";  
+    })
+
+    $('#play').click(function() {
+  const audio = new Audio("http://tonetrove.com/sounds/R&b34.wav");
+  audio.play();
+});
+</script>
+
+
+<script>
+    var questionNum = 0;													// keep count of question, used for IF condition.
+var question = 'I am your interactive table. I can take your orders, answer your questions and convey your message to reception and provide you details of todays offers.<br><h1>May i know your name sir ?<h1>';				  // first question
+
+var output = document.getElementById('output');				// store id="output" in output variable
+output.innerHTML = question;													// ouput first question
+
+function bot() { 
+    var input = document.getElementById("input").value;
+    console.log(input);
+
+    if (questionNum == 0) {
+    output.innerHTML = '<h2 class="bounceInLeft animated">Hello ' + input + '</h2><h1 class="bounceInLeft animated" >Do you need water??</h1>';// output response
+    $("#input").css("display", "none");
+    $("#needWater").css("display", "block");
+    document.getElementById("input").value = "";   		// clear text box
+    question = '<h1>Do you need water??</h1>';			    	// load next question		
+    setTimeout(timedQuestion, 2000);									// output next question after 2sec delay
+    
+    }
+
+    else if (questionNum == 1) {
+        $("#tableClean").css("display", "block");
+        $("#chillWater").css("display", "none");
+        output.innerHTML = '<h1 class="bounceInLeft animated">Is your table is clean ?</h1>';
+        document.getElementById("input").value = "";   
+        setTimeout(timedQuestion, 2000);
+    }   
+    else if (questionNum == 2) {
+        $("#tableClean").css("display", "none");
+        $("#decideMenu").css("display", "block");
+        output.innerHTML = '<h1 class="bounceInLeft animated">Do you want to know todays speciality or explore menu ?</h1>';
+        document.getElementById("input").value = "";   
+        setTimeout(timedQuestion, 2000);
+    }   
+}
+
+function timedQuestion() {
+   // output.innerHTML = question;
+}
+
+//push enter key (using jquery), to run bot function.
+$(document).keypress(function(e) {
+  if (e.which == 13) {
+    bot();																						// run bot function when enter key pressed
+    questionNum++;																		// increase questionNum count by 1
+  }
+});
+
+$('#wateYes').click(function () {
+    
+    output.innerHTML = '<h1 class="bounceInLeft animated">You want cold water ?</h1>';
+   
+    
+
+})
+
+$('#waterYes').click(function () {
+    
+    output.innerHTML = '<h1 class="bounceInLeft animated">You want cold water ?</h1>';
+    $("#needWater").css("display", "none");
+    $("#chillWater").css("display", "block");
+
+})
+
+$('#waterNo').click(function () {
+    
+    bot();																						// run bot function when enter key pressed
+    questionNum++;	
+  
+})
+
+$('#chillNo').click(function () {
+    
+    bot();																						// run bot function when enter key pressed
+    questionNum++;	
+  
+})
+
+$('#chillYes').click(function () {
+    
+    bot();																						// run bot function when enter key pressed
+    questionNum++;	
+  
+})
+$('#cleanYes').click(function () {
+    
+    bot();																						// run bot function when enter key pressed
+    questionNum++;	
+  
+})
+$('#cleanNo').click(function () {
+    
+    bot();																						// run bot function when enter key pressed
+    questionNum++;	
+  
+})
+
+$('#special').click(function () {
+    location.href = '/menu';
+})
+$('#normal').click(function () {
+    location.href = '/menu';
+})
+
+</script>

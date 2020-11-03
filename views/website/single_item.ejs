@@ -1,0 +1,92 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container product animated fadeInUp">
+    <ul class="breadcrumb">
+        <li><a href="/menu"><i class="fa fa-home fa-xs" aria-hidden="true"></i></a></li>
+        <li><a href="/menu/<%- parent._id  %>"><%- parent.title  %></a></li>
+        <li><a href="#"><%- item.item  %></a></li>
+      </ul>
+    <div class="row">
+                <div class="col-md-5">
+                    <div class="demo">
+                        <div class="item">       
+                            <div class="clearfix" style="max-width:474px;">
+                                <ul id="product-gallery" class="gallery list-unstyled cS-hidden">
+                                    
+                                   <% item.web_img.forEach(img => { %> 
+
+                                        <li data-thumb="../../uploads/<%- img  %>"> 
+                                            <img src="../../uploads/<%- img  %>" />
+                                             </li>
+
+                                    <%   });  %>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-3">
+                    <div class="content">
+                        <h1><%- item.item  %></h1>
+                        <div class="description"> <%- item.desc  %> </div>
+                        <div class="price" id="product_price">
+                            <span class="amount"><%- item.price %></span>
+                            <span class="cur">AED + VAT</span>
+                        </div>
+                        <div class="form-inline mt-3">
+                            <input type="hidden" id="item_id" value="<%- item._id  %>">
+                            <div class="form-group mx-sm-3 mb-2">
+                              <label for="inputPassword2" class="sr-only">Quantity</label>
+                              <select class="form-control" id="qunatity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                            </div>
+                            <button id="order" type="button" class="btn btn-primary mb-2">Order</button>
+                            <div id="msg" class="w-75"></div>
+                        </div>
+
+                    </div>                    
+                </div>        
+        </div>
+        
+    </div>
+    <div class="product-sub-1"></div>
+    <div class="product-sub-2"></div>
+
+    <div class="container similar-products animated fadeInUp" >
+        <h1 class="module-title">Similar Menu Items</h1>
+
+        <div class="row">
+            <% if(similar.length){
+                similar.forEach(sitem => { %>
+    
+                    <div class="col-lg-4 mt-3 product-list">
+                        <a href="/menu/item/<%- sitem._id  %>">
+                            <img class="product-image img-fluid" src="../../uploads/<%- sitem.web_img[0]  %>" alt="">
+                            <div class="product-dec">
+                                <span class="name"><%- sitem.item  %></span>
+                                <span class="price">
+                                    <span class="amount"><%- sitem.price  %></span>
+                                    <span class="cur">AED + VAT</span>
+                                </span>
+                            </div>
+                            
+                        </a>
+                    </div>
+             <%   }); } %>
+            </div>
+    </div>
+<% include includes/footer.ejs %>

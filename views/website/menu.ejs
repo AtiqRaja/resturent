@@ -1,0 +1,27 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 style="font-size:4em; color:white;" class="font-weight-light animated pulse">The Aitropolis Restaurant</h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <% 
+            items.forEach(item => { %>
+                <div class="col-lg-4 mt-3 cat-list animated fadeInUp">
+                    <a href="/menu/<%- item._id  %>">
+                        <img class="img-fluid" src="../uploads/<%- item.web_img  %>" alt="<%- item.title  %>">
+                        <h2 class="cat-title"><span><%- item.title  %></span></h2>
+                    </a>
+                </div>
+
+         <%   });  %>
+        
+        </div>
+    </div>
+
+<% include includes/footer.ejs %>

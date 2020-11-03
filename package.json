@@ -1,0 +1,72 @@
+{
+    "name": "aitropolis-cafe",
+    "version": "1.0.0",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "merge_logs": true,
+    "private": true,
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "exec_mode": "cluster",
+    "instances": "max",
+    "watch": false,
+    "ignore_watch": [
+        "node_modules",
+        "public/uploads",
+        ".git",
+        ".vscode",
+        "public/assets/*",
+        "views/*"
+    ],
+    "watch_options": {
+        "usePolling": false,
+        "alwaysStat": false,
+        "useFsEvents": true
+    },
+    "env": {
+        "BINDIP": "0.0.0.0",
+        "PORT": 8085,
+        "MONITORING": true
+    },
+    "dependencies": {
+        "async": "^2.6.1",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.18.3",
+        "compression": "^1.7.4",
+        "connect-flash": "^0.1.1",
+        "connect-mongo": "^2.0.3",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-ip": "^1.0.3",
+        "express-messages": "^1.0.1",
+        "express-session": "^1.15.6",
+        "express-sessions": "^1.0.6",
+        "express-validator": "^5.3.0",
+        "fs": "0.0.1-security",
+        "jstimezonedetect": "^1.0.6",
+        "moment": "^2.22.2",
+        "moment-timezone": "^0.5.23",
+        "mongodb": "^3.1.8",
+        "mongoose": "^5.3.8",
+        "mongoose-unique-validator": "^2.0.2",
+        "multer": "^1.4.1",
+        "ngrok": "^3.1.0",
+        "node-cron": "^2.0.3",
+        "node-gyp": "^3.8.0",
+        "node-pre-gyp": "^0.11.0",
+        "node-rest-client": "^3.1.0",
+        "nodemailer": "^4.7.0",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "nodemon": "^1.18.5",
+        "passport": "^0.4.0",
+        "passport-custom": "^1.0.5",
+        "passport-local": "^1.0.0",
+        "passport-one-session-per-user": "^1.0.3",
+        "router-express": "^1.5.2",
+        "satoshi-bitcoin": "^1.0.4",
+        "xoauth2": "^1.2.0"
+    }
+}

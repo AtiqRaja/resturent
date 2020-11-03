@@ -1,0 +1,110 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/header.ejs %>
+<link href="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="https://adminlte.io/themes/v3/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Reports</h6>
+    </div>
+    <div class="card-body">
+      <div class="row">
+          <div class="col-md-5">
+            <form method="POST" action="/admin/settings/reports">
+            <div class="form-group">
+                <label>Date range:</label>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="far fa-calendar-alt"></i>
+                    </span>
+                  </div>
+                  <input name="daterange" type="text" class="form-control float-right" id="reservation">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <hr>
+          </div>
+          </div>
+          <% if(data.length){ %>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Table#</th>
+                  <th>Time</th>
+                  <th>Bill</th>
+                  <th>Vat</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Table#</th>
+                    <th>Time</th>
+                    <th>Bill</th>
+                    <th>Vat</th>
+                    <th>Total</th>
+                  </tr>
+              </tfoot>
+              <tbody>
+
+                <% stotal = svat = 0;
+                 data.forEach((element, key) => { vat =0; total=0 %>
+
+                    <tr>
+                        <td><%- key+1  %></td>
+                        <td><%- element.table_no  %></td>
+                        <td><%- moment(element.created).format('LLL')  %></td>
+                        <td>
+
+                            <%  element.items.forEach(item => {  %>
+                                    <%  items.forEach(i => { if(item.item == i._id){  total = total+(i.price*item.qty) %>
+                                            
+                                        <% } }) %>
+                                <% }) %>
+                                <%- total  %>
+                                
+                        </td>
+                        <td><%- vat  = total*0.05 %></td>
+                        <td><%-  total + vat  %></td>
+                        <% stotal = stotal+total; svat = svat + vat %>  
+                      </tr>
+                    <% }); %>
+               
+              </tbody>
+            </table>
+            <hr>
+            <h3>Total Sale : <%- stotal %></h3>
+            <h3>Total Vat : <%- svat %></h3>
+          </div>
+
+          <% } %>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
+  <script src="https://adminlte.io/themes/v3/plugins/moment/moment.min.js"></script>
+  <script src="../../../../cms/js/datarangepicker.js"></script>
+<script>
+        $('#reservation').daterangepicker()
+
+</script>
+
+
+    <!-- Page level plugins -->
+    <script src="/../../../cms/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  
+      <!-- Page level custom scripts -->
+      <script src="/../../../cms/js/demo/datatables-demo.js"></script>
+</body>
+
+</html>

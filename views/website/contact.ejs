@@ -1,0 +1,93 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container product">
+        <div class="block">
+        <h1 class="mt-5 mb-3" style="text-align:center;font-size: 3em;">Contact Us</h1>
+
+            <% if(status){ %>
+                <div class="alert alert-light w-75 mx-auto" role="alert">
+                    <b>Thank You</b>, We will reach back to you soon.
+                  </div>
+            <%  }  %>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form
+                class="contact-form d-flex flex-column align-items-center"
+                action="/contact"
+                method="POST">
+
+                <div class="form-group w-75">
+                  <input
+                    type="name"
+                    class="form-control"
+                    placeholder="Name"
+                    name="name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group w-75">
+                    <input
+                      type="name"
+                      class="form-control"
+                      placeholder="Mobile"
+                      name="mobile"
+                      required
+                    />
+                  </div>
+
+                <div class="form-group w-75">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    name="email"
+                    required
+                  />
+                </div>
+    
+                <div class="form-group w-75">
+                  <textarea
+                    class="form-control"
+                    type="text"
+                    placeholder="Message"
+                    rows="7"
+                    name="message"
+                    required
+                  ></textarea>
+                </div>
+    
+                <button style="background:#311500; color:#fff" type="submit" class="btn btn-submit w-75">Submit</button>
+              </form>
+            </div>
+            <div class="col-md-6">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14442.962681083673!2d55.222921!3d25.1782329!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x79bff2c05e9af9c!2sAsuman!5e0!3m2!1sen!2sae!4v1591085817638!5m2!1sen!2sae" width="85%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <div style="width: 85%; color:#311500">
+                <p style="font-size: 20px;" class="text-center">Villa 505, Jumeriah - 3 - Dubai, U.A.E. <br>
+                    <a style="color:#311500" href="tel:+97143414243"> +971 4 341 4243 </a>
+                    <br>
+                    <a style="color:#311500" href="mailto:info@asumanuae.com"> info@asumanuae.com </a>
+                 </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mx-auto mt-3">
+        
+        </div>
+    </div>
+        
+    </div>
+    <div class="product-sub-1"></div>
+    <div class="product-sub-2"></div>
+
+<% include includes/footer.ejs %>

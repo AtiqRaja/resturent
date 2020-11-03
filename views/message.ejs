@@ -1,0 +1,12 @@
+<div>
+    <% Object.keys(messages).forEach(function (type) { %>
+    <div class="m-alert m-alert--outline alert alert-<%= type %> alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        </button>
+        <% messages[type].forEach(function (message) { %>
+            <%= message %>
+            <br>
+        <% }) %>
+    </div>
+    <% }) %>
+</div>

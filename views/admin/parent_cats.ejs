@@ -1,0 +1,69 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/header.ejs %>
+<link href="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Parent Categories</h6>
+    </div>
+    <div class="card-body">
+            <%- messages('message', locals) %>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>Web Img</th>
+                      <th>Bg Img</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Web Img</th>
+                        <th>Bg Img</th>
+                        <th>Action</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+
+                    <% cats.forEach((element, key) => {  %>
+                        <tr>
+                            <td><%- key+1  %></td>
+                            <td><%- element.title  %></td>
+                            <td><%-  element.web_img == "" ? 'Not Available' : 'Available'  %></td>
+                            <td> <%-  element.bg_img == "" ? 'Not Available' : 'Available'   %></td>
+                            <td><div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/admin/menu/category/edit_parent/<%- element._id  %>" class="btn btn-secondary">Edit</a>
+
+                                <% if(element.status == 'active'){ %>
+                                  <a href="/admin/menu/status/pcat/deactive/<%- element._id  %>" class="btn btn-secondary">Deactive</a>
+                                  <% }else{ %>
+                                  <a href="/admin/menu/status/pcat/active/<%- element._id  %>" class="btn btn-secondary">Activate</a>
+                                <% } %>   
+
+                              </div></td>
+                          </tr>
+                        <% }); %>
+                   
+                  </tbody>
+                </table>
+              </div>
+            
+      
+    </div>
+  </div>
+
+  <% include ../partials/footer.ejs %>
+  
+    <!-- Page level plugins -->
+    <script src="/../../../cms/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  
+      <!-- Page level custom scripts -->
+      <script src="/../../../cms/js/demo/datatables-demo.js"></script>
+</body>
+
+</html>

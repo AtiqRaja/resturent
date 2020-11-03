@@ -1,0 +1,101 @@
+<% include includes/header.ejs %>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 class="font-weight-light"></h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container product">
+      <div class="container">
+        <% if(data.length){ %>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-md-offset-1">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Total</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% 
+                            var total = 0;
+                            data.forEach(sitem => { %>
+            
+                        <tr>
+                            <td class="col-sm-6 col-md-4">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="#">
+
+                                    <img class="media-object" src="../../uploads/<%- sitem._details.web_img[0]  %>" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading mt-4 ml-3"><a href="#">  <%= sitem._details.item %>                    
+                                    </a></h4>
+                               </div>
+                            </div></td>
+                            <td class="col-sm-1 col-md-1" style="text-align: center">
+                            <input type="email" class="form-control" id="exampleInputEmail1" value="<%= sitem.qty %>">
+                            </td>
+                            <td class="col-sm-2 col-md-2 text-center"><strong>AED <%= sitem._details.price %></strong></td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong><%= sitem.qty *  sitem._details.price; %> <% total = total +(sitem.qty *  sitem._details.price)  %> </strong></td>
+                            <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span> X
+                            </button></td>
+                        </tr>
+                        <%   }); %>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td><h5>Subtotal</h5></td>
+                            <td class="text-right"><h5><strong><%- total %></strong></h5></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td><h5>Estimated shipping</h5></td>
+                            <td class="text-right"><h5><strong><%-  total*0.05 %></strong></h5></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td><h3>Total</h3></td>
+                            <td class="text-right"><h3><strong><%- total + (total*0.05) %></strong></h3></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td colspan="2">
+                            <a href="/sendtoKitchen" class="btn btn-success">
+                                Send To Kitchen <span class="glyphicon glyphicon-play"></span>
+                            </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <% } else { %> 
+            <h1>Food cart is empty</h1> 
+                <a href=/ordersInKitchen class="btn btn-primary mt-3" >Check your orders in kitchen.</a>
+            <% } %>
+    </div>
+        
+    </div>
+
+
+<% include includes/footer.ejs %>
+
+<script>
+    
+</script>
