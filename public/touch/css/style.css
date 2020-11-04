@@ -72,7 +72,7 @@ body {
     width: 22%;
 }
 .tableImgDown img {
-    width: 130%;
+    width: 100%;
 }
 .back .row {
     width: 100%;
@@ -88,8 +88,9 @@ body {
 }
 .tableDisplay {
     display: table;
-    width: 100%;
+    width: 80%;
     height: 100%;
+    margin-left: 10%;
 }
 .verticalAlign {
     display: table-cell;
@@ -115,9 +116,20 @@ body {
     width: 82%;
     right: 73%;
 }
+.textUp {
+    position: absolute;
+    top: 15%;
+    width: 82%;
+    right: 76%;
+}
 .text1{
     position: absolute;
     left: 70%;
+    top: 15%;
+}
+.text1Up{
+    position: absolute;
+    left: 72%;
     top: 15%;
 }
 .text2{
@@ -126,13 +138,24 @@ body {
     top: 43%;
     width: 58%;
 }
+.text2Up{
+    position: absolute;
+    left: 80%;
+    top: 43%;
+    width: 58%;
+}
 .text3{
     position: absolute;
-    left: 70%;
+    left: 73%;
     top: 69%;
     width: 78%;
 }
-
+.text3Up{
+    position: absolute;
+    left: 73%;
+    top: 69%;
+    width: 78%;
+}
 .ripple {
     margin: auto;
     background-color: #fff;
@@ -241,7 +264,7 @@ body {
 
 .umenuText {
     position: absolute;
-    left: 40%;
+    left: 45%;
     top: -25%;
     height: 30vh;
     width: 45%;
