@@ -19,12 +19,16 @@
                 <div class="verticalAlign">
                     <div class="row">
                         <div class="rotateText textDiv heightDiv">
-                            <div id="upText1" class="animated slideInRight slower">
-                                <h1> Good Food is a Good Mood </h1>
-                            </div>   
-                            <div class="hide" id="upText2">
-                                <h1> Intrested to know the Secret Ingredient? </h1>
-                            </div> 
+                            <div class="w-100 p-3">
+                                <div id="upText1" class="animated slideInRight slower">
+                                    <h1> Good Food is a Good Mood </h1>
+                                </div>
+                            </div>
+                            <div class="w-80 p-3">  
+                                <div class="hide" id="upText2">
+                                    <h1> Intrested to know the Secret Ingredient? </h1>
+                                </div> 
+                            </div>
                             <div class="hide" id="upTouch">
                                 <div class="ripple">
                                     <div class="text">
@@ -56,12 +60,13 @@
                                 </div>
                                 </div>
                                 <div id="umenu1" class="hide">
-                                    <div class="animated zoomIn slower">
-                                        <img src="../../touch/images/backText.png" class="uchefImg animated rotateIn slower" >
+                                    <div class="uchefImg animated zoomIn slower">
+                                        <img src="../../touch/images/backText.png" class="animated rotateIn slower" width="100%" >
                                         
                                         <!-- <span class="backText"> BACK </span> -->
                                     </div>
-                                    <img src="../../touch/images/circle-menu.png" class="umenuImg hide" id="umenuImg">
+                                    <img src="../../touch/images/menu-ins-up.png" class="umenuImg hide" id="umenuImg">
+                                    <img src="../../touch/images/menu-ins.png" class="umenuImg1 hide" id="umenuImg1">
                                     <div class="hide umenuText" id="umenuText">
                                         <%  items.forEach(i => { %>
                                             <div class="row uparent" id="<%- i._id %>">
@@ -80,11 +85,15 @@
                     </div>
                     <div class="row">
                         <div class="textDiv heightDiv">
-                            <div id="downText1" class="animated slideInRight slower">
-                                <h1> What to know what's special today? </h1>
+                            <div class="w-100 p-3">
+                                <div id="downText1" class="animated slideInRight slower">
+                                    <h1> What to know what's special today? </h1>
+                                </div>
                             </div>
-                            <div class="hide" id="downText2">
-                                <h1> Our aim is to offer Simple, Fresh, Good Food. </h1>
+                            <div class="w-100 p-3">
+                                <div class="hide" id="downText2">
+                                    <h1> Our aim is to offer Simple, Fresh, Good Food. </h1>
+                                </div>
                             </div>
                             <div class="hide" id="downTouch">
                                 <div class="ripple" style="width: 23% !important;">
@@ -121,16 +130,18 @@
                                             
                                             <!-- <span class="backText"> BACK </span> -->
                                         </div>
-                                        <img src="../../touch/images/circle-menu.png" class="menuImg hide" id="menuImg">
-                                        <div class="hide menuText" id="menuText">
-                                            <%  items.forEach(i => { %>
-                                                <div class="row parent" id="<%- i._id %>">
-                                                    <div class="col-md-7">  <%- i.title %> </div>
-                                                    <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
-                                                </div>
-                                             <% }); %>
-                                                  
-                                        </div>
+                                        <img src="../../touch/images/menu-ins-up.png" class="menuImg hide" id="menuImg">
+                                        <img src="../../touch/images/menu-ins.png" class="menuImg1 hide" id="menuImg1">
+                                            <div class="hide menuText" id="menuText">
+                                                <%  items.forEach(i => { %>
+                                                    <div class="row parent" id="<%- i._id %>">
+                                                        <div class="col-md-7">  <%- i.title %> </div>
+                                                        <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
+                                                    </div>
+                                                <% }); %>
+                                                    
+                                            </div>
+                                        
                                     </div>
                                 </div>
                             </div> 
@@ -296,10 +307,14 @@
             $('#menu1').removeClass('hide')
             setTimeout(() => {
                 $('#menuImg').removeClass('hide')
-                $('#menuImg').addClass('animated fadeIn slower')
+                $('#menuImg').addClass('animated zoomIn slower')
                 $('#menuText').removeClass('hide')
-                $('#menuText').addClass('animated fadeInLeft slower')
+                $('#menuText').addClass('animated fadeInUp slower')
             }, 1500)
+            setTimeout(() => {
+                $('#menuImg1').removeClass('hide')
+                $('#menuImg1').addClass('animated zoomIn slower')
+            }, 2000)
         })
 
         $('#text2').click(() => {
@@ -319,10 +334,14 @@
             $('#umenu1').removeClass('hide')
             setTimeout(() => {
                 $('#umenuImg').removeClass('hide')
-                $('#umenuImg').addClass('animated fadeIn slower')
+                $('#umenuImg').addClass('animated zoomIn slower')
                 $('#umenuText').removeClass('hide')
-                $('#umenuText').addClass('animated fadeInLeft slower')
+                $('#umenuText').addClass('animated fadeInUp slower')
             }, 1500)
+            setTimeout(() => {
+                $('#umenuImg1').removeClass('hide')
+                $('#umenuImg1').addClass('animated zoomIn slower')
+            }, 2000)
         });
 
         $('#textR2').click(() => {

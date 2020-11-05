@@ -218,9 +218,9 @@ body {
 .uchefImg{
     width: 50% !important;
     position: absolute;
-    right: 50%;
+    right: 54%;
     z-index: 999;
-    /* top: 10%; */
+    top: 12%;
 }
 
 .menuImg{
@@ -229,13 +229,26 @@ body {
     left: 15%;
     z-index: -1;
 }
-
+.menuImg1{
+    position: absolute;
+    right: 0%;
+    left: 15%;
+    z-index: -11;
+}
 .umenuImg{
     position: absolute;
     right: 0%;
     left: 30%;
     z-index: -1;
-    width: 70%;
+    width: 50%;
+    top: 0%;
+}
+
+.umenuImg1{
+    position: absolute;
+    left: 40%;
+    z-index: -11;
+    width: 50%;
     top: 0%;
 }
 
@@ -264,7 +277,7 @@ body {
 
 .umenuText {
     position: absolute;
-    left: 45%;
+    left: 42%;
     top: -25%;
     height: 30vh;
     width: 45%;
