@@ -1,4 +1,28 @@
 <% include includes/header.ejs %>
+<style>
+    .bordered{
+    padding: 12px;
+    border: 2px solid #ffffff6b;
+    border-radius: 10px;
+    font-size: 4em;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    }
+    .active{
+        background-color: #dedede;
+        color: black;
+    }
+    .hide{
+        display: none
+    }
+    #bbcDiv{
+        padding-top: 2%;
+    }
+    #cnnDiv {
+        padding-top: 2%;
+    }
+</style>
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
@@ -10,13 +34,62 @@
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <!-- 24-7 Press Release Newswire Landing Page Widget Code Starts Here --> <script type="text/javascript" src="https://news.24-7pressrelease.com/247pr-news-widget.js?widgettitle=News Provided by 24-7PressRelease.com&amp;showRelease=1&amp;width=auto&amp;headlinebold=1&amp;headlinesonly=0&amp;headlinecolor=2d57a1&amp;briefcolor=666666&amp;textcolor=333333&amp;typeface=arial&amp;fontsize=11&amp;width=auto&amp;headlinesepstyle=dotted&amp;showimages=1&amp;numstories=20&amp;bgcolor=ffffff&amp;urldest=247pr"></script> <!-- 24-7 Press Release Newswire Landing Page Widget Code Ends Here --> 
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="row">
+                <div id="press" class="col-md-4 bordered active animated bounceInLeft" style="height: 120px;">
+                    Press
+                </div>
+                <div id="bbc" class="col-md-4 bordered animated bounceInRight" style="height: 120px;">
+                    BBC
+                </div>
+                <div id="cnn" class="col-md-4 bordered animated bounceInRight" style="height: 120px;">
+                    CNN
+                </div>
+            </div>
+            <div id="pressDiv">
+                <!-- 24-7 Press Release Newswire Landing Page Widget Code Starts Here --> <script type="text/javascript" src="https://news.24-7pressrelease.com/247pr-news-widget.js?widgettitle=News Provided by 24-7PressRelease.com&amp;showRelease=1&amp;width=auto&amp;headlinebold=1&amp;headlinesonly=0&amp;headlinecolor=2d57a1&amp;briefcolor=666666&amp;textcolor=333333&amp;typeface=arial&amp;fontsize=11&amp;width=auto&amp;headlinesepstyle=dotted&amp;showimages=1&amp;numstories=20&amp;bgcolor=ffffff&amp;urldest=247pr"></script> <!-- 24-7 Press Release Newswire Landing Page Widget Code Ends Here --> 
+            </div>
+            
+            <div id="bbcDiv" class="hide">
+                <iframe src="https://feed.mikle.com/widget/v2/138646/?preloader-text=Loading..." height="1002px" width="100%" class="fw-iframe" scrolling="no" frameborder="0"></iframe>
+            </div>
+
+            <div id="cnnDiv" class="hide">
+                <iframe style="background-color: #ffffff;" src="https://momentaryreview.com/widget/" name="momentary_review" width="100%" height="1000" frameborder="0" marginwidth="2" marginheight="4"></iframe>
+            </div>
         </div>
         
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
         
         </div>
     </div>
 
 <% include includes/footer.ejs %>
+
+<script>
+    $('#bbc').click(function () {
+        $('#press').removeClass('active');
+        $('#cnn').removeClass('active');
+        $('#bbc').addClass('active'); 
+        $('#cnnDiv').addClass('hide');
+        $('#pressDiv').addClass('hide');
+        $('#bbcDiv').removeClass('hide');
+    })
+    $('#press').click(function () {
+        $('#bbc').removeClass('active');
+        $('#cnn').removeClass('active');
+        $('#press').addClass('active'); 
+        $('#cnnDiv').addClass('hide');
+        $('#bbcDiv').addClass('hide');
+        $('#pressDiv').removeClass('hide');
+    })
+    $('#cnn').click(function () {
+        $('#bbc').removeClass('active');
+        $('#press').removeClass('active');
+        $('#cnn').addClass('active'); 
+        $('#pressDiv').addClass('hide');
+        $('#bbcDiv').addClass('hide');
+        $('#cnnDiv').removeClass('hide');
+    })
+</script>

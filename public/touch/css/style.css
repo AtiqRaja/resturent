@@ -80,6 +80,42 @@ body {
 .back .row .textDiv {
     margin: 0 auto;
 }
+.menuBreakImg {
+    width: 50% !important;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.menuBreakImgDown {
+    width: 60% !important;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.addToCartButton{
+    padding: 2px;
+    border: 2px solid #ffffff6b;
+    border-radius: 10px;
+    font-size: 2em !important;
+    color: white;
+    text-align: center !important;
+    cursor: pointer;
+    height: 45px;
+    margin-top: 10%;
+    width: 55%;
+    margin-left: 5%;
+}
+.addToCartButtonDown {
+    padding: 2px;
+    border: 2px solid #ffffff6b;
+    border-radius: 10px;
+    font-size: 2em !important;
+    color: white;
+    text-align: center !important;
+    cursor: pointer;
+    height: 45px;
+    margin-top: 10%;
+    width: 75%;
+    margin-left: 5%;
+}
 .rotateText {
     transform: rotate(180deg);
 }
