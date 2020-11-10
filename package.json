@@ -5,9 +5,7 @@
     "merge_logs": true,
     "private": true,
     "main": "app.js",
-    "scripts": {
-        "start": "nodemon server.js"
-    },
+    "script":"app.js",
     "exec_mode": "cluster",
     "instances": "max",
     "watch": false,
