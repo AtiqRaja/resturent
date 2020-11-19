@@ -35,12 +35,18 @@ function shouldCompress (req, res) {
 var bindip = process.env.BINDIP || "127.0.0.1";
 var port = process.env.PORT || 3000;
 
-mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
-let db = mongoose.connection;
+// mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
+// let db = mongoose.connection;
 
-db.once('open', function() {
-    console.log('Connected to MongoDB');
-});
+// db.once('open', function() {
+//     console.log('Connected to MongoDB');
+// });
+
+var db = require('./config/database').MongoURI;
+mongoose.connect(db , {useNewUrlParser : true ,  useUnifiedTopology: true})
+.then(() => console.log('Database Connected...!'))
+.catch(err => console.log(err));
+mongoose.set('useCreateIndex', true);
 
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
@@ -55,7 +61,9 @@ app.use(session({
     secret: 'chiChuKiMaliyan',
     resave: true, 
     saveUninitialized: true,
-    store: new MongoStore({ mongooseConnection: db }),
+    store: new MongoStore({ 
+        //mongooseConnection: db , 
+        mongooseConnection: mongoose.connection }),
     cookie: {
         expires: 3600000
     }
@@ -186,8 +194,8 @@ app.listen(port, bindip, () => {
     console.log('Server listing on IP ' + bindip + ' and port ' + port);
 });
 
-cron.schedule('*/1 * * * *', function() {
-    if (db.readyState != 1) {
-        console.log('Checking DB Connection: ' + ((db.readyState == 1)? 'Connected' : 'Not Connected'));        
-    }
-});
+// cron.schedule('*/1 * * * *', function() {
+//     if (db.readyState != 1) {
+//         console.log('Checking DB Connection: ' + ((db.readyState == 1)? 'Connected' : 'Not Connected'));        
+//     }
+// });

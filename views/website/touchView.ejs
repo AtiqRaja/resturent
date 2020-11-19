@@ -359,6 +359,7 @@
         });
 
 
+
         $(".parent").click(function(){
              p_id = $(this).attr('id')
 
@@ -369,29 +370,58 @@
                         console.log(_data , "\nStatus: " + status);
                              target = $('#menuText');
                              $(target).empty();
+                             var string = '';
+                             var string2 = '';
+                             var image_src = '';
                        
                         if (_data.items.length > 0 ) {
                             if(typeof(_data.items) != "undefined"){
                                         _data.items.forEach(element => {    
                                             console.log(element);
                                             $('<div class="row">'+
-                                                '<div class="col-md-2"><img src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg"></div>'+
-                                                    '<div class="col-md-6">' +element.item+ '</div>'+
+                                                '<div class="col-md-2"><img id="elementImage" src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg"></div>'+
+                                                    '<div class="col-md-6"><a href="#">' +element.item+ '</a></div>'+
                                                     '<div class="col-md-4 addToCart" id="' +element._id+ '"> <i class="fa fa-shopping-basket"><span></span></i></div></div>').appendTo(target);
 
+                                                    string = '<img id="elementImage" src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg">';
+                                                   
                                         });
+
+
+                                        var elem = document.createElement("div");
+                                        elem.innerHTML = string;
+                                        var images = elem.getElementsByTagName("img");
+                                    
+                                        
                                         $('<div class="row">'+
-                                           '<div class="img-fluid itemImg"> <img src="../../touch/images/break.jpg" class="menuBreakImgDown"> </div>'+
+                                           '<div class="img-fluid itemImg"><img id="elementImage2" src="../../touch/images/break.jpg" class="menuBreakImgDown"> </div>'+
                                            '</div>'+
                                            '<div class="row">'+
                                            '<div class="addToCartButtonDown"> Add To Cart </div>'+
                                            '</div>'
                                         ).appendTo(target);
+
+                                        for (var i = 0; i < images.length; i++) {
+                                            //console.log(images[i].src);
+                                            var check = $("#elementImage2").attr("src" , images[i].src);
+                                            //console.log('check' , check);
+                                        }
                                     }
                             }
                     });
             
         })
+
+            //var string = '<img id="elementImage" src="../../uploads/'+element.web_img[0]+ '" class="img-fluid itemImg">';
+            // var elem= document.createElement("div");
+            // elem.innerHTML = string;
+            // var images = elem.getElementsByTagName("img");
+            // //var images = elem.$('#youtubeimg');
+            // console.log(images);
+            // for (var i = 0; i < images.length; i++) {
+            //         alert(images[i].src);
+            //     }
+
 
         $(".uparent").click(function(){
              p_id = $(this).attr('id')

@@ -5,7 +5,7 @@
     "merge_logs": true,
     "private": true,
     "main": "app.js",
-    "script":"app.js",
+    "script": "app.js",
     "exec_mode": "cluster",
     "instances": "max",
     "watch": false,
