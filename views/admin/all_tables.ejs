@@ -1,0 +1,78 @@
+<% include ../partials/head.ejs %>
+<% include ../partials/header.ejs %>
+<link href="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-header mt-2">
+      <h3 class="card-title">
+        All Tables
+        <a style="float: right;" href="/tables/addTable" class="btn btn-primary font-weight-bolder">
+            <i class="la la-plus"></i>
+            New Table
+        </a>
+      </h3>
+      
+    </div>
+    <div class="card-body">
+        
+      <%- messages('message', locals) %>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Area</th>
+              <th>Table Name</th>
+              <th># of Chairs</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>#</th>
+              <th>Area</th>
+              <th>Table Name</th>
+              <th># of Chairs</th>
+              <th>Action</th>
+            </tr>
+          </tfoot>
+          <tbody>
+  
+            <% tables.forEach((element, key) => {  %>
+            <tr>
+              <td><%- key+1  %></td>
+              <td><%- element.area_name  %></td>
+              <td><%- element.table_name  %></td>
+              <td><%- element.chairs  %></td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="/tables/editTable/<%- element._id  %>" class="btn btn-secondary">Edit</a>
+                  <a href="/tables/deleteTable/<%- element._id  %>" class="btn btn-secondary">Delete</a>
+  
+                </div>
+              </td>
+            </tr>
+            <% }); %>
+  
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<% include ../partials/footer.ejs %>
+
+<!-- Page level plugins -->
+<script src="/../../../cms/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/../../../cms/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="/../../../cms/js/demo/datatables-demo.js"></script>
+</body>
+
+</html>

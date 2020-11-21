@@ -15,7 +15,10 @@ var ccats = require('../models/child_category');
 var items = require('../models/menu_items');
 var orders = require('../models/order');
 
-router.get("/", (req, res) => { 
+router.get("/:hotel_name/:hotel_id", (req, res) => { 
+
+    hotel_id = req.params.hotel_id;
+    Hotel_name = req.params.Hotel_name;
 
     pcats.find({status:'active'}).then(function (cats) {
         console.log(cats);

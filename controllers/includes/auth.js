@@ -37,6 +37,21 @@ class auth {
             }
         }
 
+        hotelAuth(req, res, next) {
+
+            if (req.isAuthenticated()) {
+                if (req.user.user_type == 'hotel' || req.user.user_type == 'restaurant'){
+                    return next();    
+                }else{
+                    res.redirect('/dashboard');
+                }
+                
+            } else {
+                req.flash('danger', 'Please login');
+                res.redirect('/login');
+            }
+        }
+
 }
 
 

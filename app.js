@@ -184,6 +184,9 @@ app.use('/', user);
 var menu = require('./controllers/menu');
 app.use('/', menu);
 
+var table = require('./controllers/tables');
+app.use('/tables', table);
+
 
 app.get('*', function(req, res) {
     res.status(400).render('404');
