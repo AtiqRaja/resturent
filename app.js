@@ -104,14 +104,14 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-var passportOneSessionPerUser = require('passport-one-session-per-user');
-passport.use(new passportOneSessionPerUser());
-app.use(passport.authenticate('passport-one-session-per-user'));
+// var passportOneSessionPerUser = require('passport-one-session-per-user');
+// passport.use(new passportOneSessionPerUser());
+// app.use(passport.authenticate('passport-one-session-per-user'));
 
 app.get('*', function(req, res, next) {
     
     res.locals.user = req.user || null;
-    next();
+    //next();
 });
 
 
@@ -181,11 +181,11 @@ app.post('/contact', function(req, res, next) {
 var user = require('./controllers/user');
 app.use('/', user);
 
-var menu = require('./controllers/menu');
-app.use('/', menu);
+// var menu = require('./controllers/menu');
+// app.use('/', menu);
 
-var table = require('./controllers/tables');
-app.use('/tables', table);
+// var table = require('./controllers/tables');
+// app.use('/t', table);
 
 
 app.get('*', function(req, res) {

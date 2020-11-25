@@ -1,0 +1,514 @@
+<% include includes/header.ejs %>
+
+<style>
+  .animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.modal-dialog{
+  margin: 0 auto !important;
+}
+
+.modal-title{
+  font-size: 1.2em;
+}
+
+.cart-bar{
+  background-color: #f02929;
+  width: 50%;
+  position: absolute;
+  bottom: 20px;
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50px;
+  color:white;
+  padding-left: 10px;
+  right: 10px;
+}
+
+.cart-bar .right{
+  color: white;
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 16px;
+}
+
+#totalItem{
+  font-size: 16px;
+    padding-top: 5px;
+}
+
+.totalP{
+  background-color: #f3f1f1;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 14px 14px;
+    bottom: 160px;
+}
+
+.totalP p{
+  margin-bottom: 5px;
+}
+
+.placeInfo{
+  position: absolute;
+    letter-spacing: 5px;
+    bottom: 100px;
+    background: #e0dfdfdb;
+    margin: 0 auto;
+    width: 100%;
+    left: 0;
+    padding: 10px 20px;
+    border-bottom: 1px solid gray;
+}
+.placeInfo p{
+  margin-bottom: 5px;
+}
+</style>
+
+<% include includes/sidebar.ejs %>
+<input type="hidden" id="hotel_id" value="<%- hotel_id %>" >
+<input type="hidden" id="src" value="<%- src %>" >
+<input type="hidden" id="src_id" value="<%- src_id %>" >
+
+        <!-- Page content  -->
+        <div id="content">
+          <!-- Header  -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-header">
+            <div class="container-fluid">
+              <button type="button" id="sidebarleftbutton" class="btn d-none">
+                <i class="fas fa-align-left"></i>
+              </button>
+              <div class="logo"><%- hotel_name %></div>
+              <button type="button" id="sidebarrightbutton" class="btn d-none">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </nav>
+          <!-- .Header  -->
+          <!-- Content Wrap  -->
+          <div class="content-wrap">
+        
+        
+            <div class="list-section">
+              <div class="wrap-list-rc">
+                <a href="/qr/<%- src %>/<%- hotel_id %>/<%- src_id %>">
+                  <div class="heading-page">
+                    Menu
+                    <div class="back-btn">
+                      <div class="icon-back"><i class="fas fa-chevron-left"></i></div>
+        
+                    </div>
+                  </div>
+                </a>
+        
+                <div class="lrc-item">
+                  <% PriceTotal = 0 %>
+                  <% items.forEach((element, key) => {  discounted = 0; %>
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="lrc-content">
+                        <div class="lrc-img">
+                          <img src="/uploads/<%- element.details.web_img[0]  %>" alt="<%- element.details.web_img  %>">
+                        </div>
+                        <a class="itemModal" id="<%- element.details._id  %>" href="#" data-toggle="modal"
+                          data-target="#exampleModalCenter">
+                          <div style="padding-left: 60px;" class="lrc-desc">
+                            <div class="lrc-title"><%- element.details.item  %></div>
+                            <div class="d-none lrc-text">
+                              Description : <%- element.details.desc  %>
+                            </div>
+                            <div class="lrc-button">
+                              <% if(element.details.discount > 0){ %>
+                              <p class="mb-0" style="font-size: 1.2em;">Price :
+        
+                                <span style="text-decoration:line-through"><%- element.details.price %> </span>
+                                <% discounted = ( element.details.price - (element.details.price * element.details.discount/100 )) %>
+                                <span style="margin-left: 5px;"> <%- discounted %> </span> </p>
+                              <p style="color: red;"><%- element.details.discount  %> % off</p>
+                              <% } else{ discounted = element.details.price %>
+                              <p class="mb-0" style="font-size: 1.2em;">Price : <%- element.details.price %>
+                                <% } %>
+                              <div class="clear"></div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-dark btn-sm minus-btn" id=""><i class="fa fa-minus"></i></button>
+                        </div>
+                        <input type="number" id="qty_input" class="form-control form-control-sm text-center" value="0" min="1"
+                          disabled>
+        
+                        <input type="hidden" id="item_id" value="<%- element.details._id  %>">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-dark btn-sm plus-btn" id=""><i class="fa fa-plus"></i></button>
+                        </div> <br>
+        
+                      </div>
+                      <div>
+                        <% PriceTotal = PriceTotal + (discounted * element.qty) %>
+                        <% percent =  element.details.discount / 100 %>
+                        <% discount = element.details.price * percent %>
+        
+                        <p class="float-right"> <%- discounted * element.qty  %> </p>
+        
+                      </div>
+                    </div>
+        
+        
+                  </div>
+                  <hr>
+        
+        
+                  <% }); %>
+        
+                  <div class="container">
+                    <label for="">Cooking Instructions</label>
+                    <textarea class="form-control" name="textarea" cols="30" rows="3"></textarea>
+                  </div>
+        
+                  <div class="totalP">
+                    <div class="row">
+                      <div class="col-6">
+                        <p>Total</p>
+                        <p>Taxes</p>
+                        <p><b>Grand Total</b></p>
+                      </div>
+                      <div class="col-6 text-right">
+                        <p><%- PriceTotal %></p>
+                        <% tax = (PriceTotal*0.05)  %>
+                        <p><%- tax.toFixed(2)  %></p>
+                        <% PriceTotal = PriceTotal + tax %>
+                        <% PriceTotal.toFixed(2) %>
+                        <p><b> <%- PriceTotal %> </b></p>
+                      </div>
+                    </div>
+        
+                    <input type="hidden" id="totalprice" name="totalprice" value="<%= PriceTotal %>">
+        
+                  </div>
+        
+                  <% if(src == 't') { %>
+                  <div class="placeInfo">
+                    <p>ORDERING FOR</p>
+                    Table# <%- src_info.table_name %>
+                  </div>
+                  <% } else if(src == 'r') { %>
+                  <div class="placeInfo">
+                    <p>ORDERING FOR</p>
+                    Room# <%- src_info.room_number %>
+                  </div>
+                  <% } %>
+        
+                  <!-- <form method="POST">
+                              <div class="cart-bar container-fluid">
+                                <div class="row">
+                            
+                                  <input type="hidden" id="cart_items" name="cart_items">
+                                  <input type="hidden" id="ins" name="ins" value="">
+                                  <input type="hidden" id="price" name="price" value="">
+                            
+                                  <div class="col-12">
+                                    <button type="submit" id="submit">
+                                      <div class="float-right right">
+                                        Place Order <i class="fa fa-arrow-right"></i>
+                                      </button>
+                                  </div>
+                                </div>
+                              </div>
+                              </div>
+                            
+                            </form> -->
+                  <form action="/qr/confirmCart/<%= hotel_name %>/<%= src %>/<%= hotel_id %>/<%= src_id %>/Yes" method="GET" id="form">
+                    <div class="cart-bar container-fluid" onClick='submitDetailsForm()'>
+                      <div class="row">
+        
+                        <input type="hidden" id="cart_items" name="cart_items">
+                        <input type="hidden" id="ins" name="ins" value="">
+                        <input type="hidden" id="price" name="price" value="">
+        
+                        <div class="col-12">
+                          <div>
+                            <div class="float-right right">
+                              Place Order <i class="fa fa-arrow-right"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                  </form>
+        
+        
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
+            <!-- .Content wrap  -->
+        
+        </div>
+        <!-- .Page content  -->
+<% include includes/footer.ejs %>
+
+
+<!-- <script>
+
+  $(document).ready(function(){
+    $("form").submit(function(event)
+    {
+      event.preventDefault()
+
+    var textarea = $.trim($("textarea").val());
+    var price =  $('#totalprice').val();
+    //console.log('price ' , price);
+      $("#ins").val(textarea);
+      $("#price").val(price);
+
+    var cart_items = document.getElementById("cart_items").value
+    var ins = document.getElementById("ins").value
+    var totalprice = document.getElementById("price").value
+    var hotel_id = document.getElementById("hotel_id").value
+    var src = document.getElementById("src").value
+    var src_id = document.getElementById("src_id" ).value
+
+    
+    $.post("/qr/get_ajax_data" , 
+    {cart_items : cart_items , 
+      ins : ins , 
+      price : price,
+      hotel_id : hotel_id,
+      src_id : src_id,
+      src : src,
+    } , function(data)
+    {
+      console.log('data: ' , data);
+      if(data)
+      {
+        console.log('done');
+        //window.location.href = "/qr/order_done.ejs";
+       location.href = "/qr/order_done";
+      }
+    })
+    })
+
+    
+  })
+  
+</script> -->
+
+
+<script>
+
+window.onload = function() {
+
+      document.getElementById("form").style.display = "none";
+      updateCartCookieData();
+      updateTotalItems();
+
+};
+
+
+order_array = [];
+
+function submitDetailsForm() {
+
+    var textarea = $.trim($("textarea").val());
+    var price =  $('#totalprice').val();
+    //console.log('price ' , price);
+      $("#ins").val(textarea);
+      $("#price").val(price);
+      $("#form").submit();
+    }
+
+    function updateTotalItems() {
+
+    var cookie_cart = getCookie("cart");
+      
+    $("#cart_items").val(cookie_cart);
+  
+    console.log('carttt',cookie_cart);
+
+    cookie_cart = JSON.parse(cookie_cart);
+  
+    console.log(cookie_cart);
+
+    var total = 0;
+
+    cookie_cart.forEach(e => {
+            total = total + e.qty;
+          });
+
+          $('#totalItem').html(total + ' Items');    
+            
+}    
+
+
+function updateTotalItems() {
+
+  var cookie_cart = getCookie("cart");
+  cookie_cart = JSON.parse(cookie_cart);
+
+  var total = 0;
+
+  cookie_cart.forEach(e => {
+          total = total + e.qty;
+        });
+
+        $('#totalItem').html(total + ' Items');
+
+}        
+
+
+function updateCartCookieData() {
+
+  var cookie_cart = getCookie("cart");
+  $("#cart_items").val(cookie_cart);
+
+  cookie_cart = JSON.parse(cookie_cart);
+
+  if (cookie_cart != null) {
+
+    document.getElementById("form").style.display = "block";
+
+        order_array = cookie_cart;    
+        cookie_cart.forEach(element => {
+          
+          var item = $('input[value="'+element.item_id+'"]');
+          $(item).parent().parent().find('#qty_input').val( element.qty);
+          
+        });
+  
+    }
+  
+}
+
+function update_order(item_id, op){
+
+  var cookie_cart = getCookie("cart");
+  cookie_cart = JSON.parse(cookie_cart);
+  console.log('cookie', cookie_cart );
+
+  if (cookie_cart != null) {
+
+        order_array = cookie_cart;    
+        
+    }
+    
+      
+  if (op == "+") {
+   item_index = order_array.findIndex(x => x.item_id === item_id);  
+   if(item_index != -1) {
+          order_array[item_index].qty =   order_array[item_index].qty+1;
+          
+   }else{
+      order_array.push({item_id:item_id,qty:1});
+    }
+
+  }
+  
+  if (op == "-") {
+   item_index = order_array.findIndex(x => x.item_id === item_id);  
+   if(item_index != -1) {
+          order_array[item_index].qty =   order_array[item_index].qty-1  ;
+          if (order_array[item_index].qty === 0) {
+            order_array.splice(item_index, 1); 
+          }
+   }
+
+    console.log('new array', order_array);
+  }
+
+      if (order_array.length > 0) {
+
+        if (item_index == -1) {
+          item_index = order_array.findIndex(x => x.item_id === item_id);
+        }
+
+          var itemId = order_array[item_index].item_id;
+          var quantity = order_array[item_index].qty;
+
+          document.getElementById("Quantity").value = quantity;
+
+          if(quantity)
+          {
+            document.getElementById("form").style.display = "block"
+          }
+
+      }else{
+        document.getElementById("form").style.display = "none"
+      }
+
+   setCookie("cart",JSON.stringify(order_array),30); 
+   updateTotalItems();   
+  
+  
+}
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+
+$(document).ready(function(){
+            
+        $('.plus-btn').click(function(){
+                item_id = $(this).parent().parent().find('#item_id').val();
+                qty_val = parseInt($(this).parent().parent().find('#qty_input').val());
+                $(this).parent().parent().find('#qty_input').val(qty_val + 1 );
+                update_order(item_id, "+");                
+          });
+          
+        $('.minus-btn').click(function(){
+             $('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
+             update_order(item_id, "-");
+            if ($('#qty_input').val() < 1) {
+                $('#qty_input').val(0);
+                
+            }
+    	  });
+ });
+
+ </script>
+  
+
+ 
+</html>

@@ -1,0 +1,113 @@
+/*================================================
+
+* Template Name: Foodkuy - Food Recipe Mobile Template
+* Version: 1.0
+* Author: HidraTheme 
+* Developed By: HidraTheme  
+* Author URL: https://themeforest.net/user/hidratheme  
+
+================================================*/
+body.foodkuy-green-leaf {
+  color: #212529; }
+  body.foodkuy-green-leaf a,
+  body.foodkuy-green-leaf a:hover {
+    color: #212529; }
+  body.foodkuy-green-leaf .btn {
+    /* background-color: #be2623; */
+    background-color: #000000;
+   }
+  body.foodkuy-green-leaf .theme-button {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .theme-button-line {
+    border: 1px solid #be2623;
+    color: #be2623; }
+  body.foodkuy-green-leaf .theme-button:hover {
+    background-color: #1d7131; }
+  body.foodkuy-green-leaf ul.slick-dots li button {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .share-button li a {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .form-control:focus {
+    border-color: #be2623; }
+  body.foodkuy-green-leaf .preloading .wrap-preload {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .bg-header {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .navbar .logo,
+  body.foodkuy-green-leaf .navbar #sidebarleftbutton.btn,
+  body.foodkuy-green-leaf .navbar #sidebarrightbutton.btn {
+    color: #ffffff; }
+  body.foodkuy-green-leaf .sdprofile .sdp-right .sd-name {
+    color: #ffffff; }
+  body.foodkuy-green-leaf #sidebarleft {
+    background-color: #333; }
+    body.foodkuy-green-leaf #sidebarleft a,
+    body.foodkuy-green-leaf #sidebarleft a:hover {
+      color: #ffffff; }
+    body.foodkuy-green-leaf #sidebarleft .svg-inline--fa {
+      color: #ffffff; }
+    body.foodkuy-green-leaf #sidebarleft ul .svg-inline--fa {
+      color: #be2623; }
+  body.foodkuy-green-leaf #sidebarleft .sidebar-header {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf #sidebarright {
+    background-color: #333; }
+    body.foodkuy-green-leaf #sidebarright a,
+    body.foodkuy-green-leaf #sidebarright a:hover {
+      color: #ffffff; }
+    body.foodkuy-green-leaf #sidebarright ul li .fas,
+    body.foodkuy-green-leaf #sidebarright ul li .svg-inline--fa {
+      color: #be2623; }
+  body.foodkuy-green-leaf .section-home .sa-title {
+    color: #212529; }
+  body.foodkuy-green-leaf .recipe-author .author-box .author-img {
+    border: 2px solid #be2623; }
+  body.foodkuy-green-leaf .section-home.home-news .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #be2623; }
+  body.foodkuy-green-leaf .section-subscribe .subcontainer .section-title {
+    color: #be2623; }
+  body.foodkuy-green-leaf .section-subscribe .subcontainer .submitsub {
+    background-color: #be2623;
+    border: 1px solid #be2623; }
+  body.foodkuy-green-leaf .section-subscribe .mail-subscribe-box input {
+    border: 1px solid #be2623; }
+  body.foodkuy-green-leaf .section-subscribe .mail-subscribe-box i {
+    color: #be2623;
+    border: 1px solid #be2623; }
+  body.foodkuy-green-leaf .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #be2623; }
+  body.foodkuy-green-leaf .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .lrc-title {
+    color: #be2623; }
+  body.foodkuy-green-leaf .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #be2623; }
+  body.foodkuy-green-leaf .login-section .fb-text-heading {
+    color: #be2623; }
+  body.foodkuy-green-leaf .register-section .fb-text-heading {
+    color: #be2623; }
+  body.foodkuy-green-leaf .wrap-pagination .page-link {
+    color: #212529; }
+  body.foodkuy-green-leaf .wrap-pagination .page-item.active .page-link {
+    background-color: #be2623;
+    border-color: #be2623; }
+  body.foodkuy-green-leaf .gallery-section .filter-button {
+    color: #be2623; }
+  body.foodkuy-green-leaf .gallery-section .filter-button.active {
+    color: #1d7131; }
+  body.foodkuy-green-leaf .section-news-list .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #be2623; }
+  body.foodkuy-green-leaf .section-profile .proname {
+    color: #be2623; }
+  body.foodkuy-green-leaf .section-profile .content-from .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #be2623; }
+  body.foodkuy-green-leaf .section-profile .socmed .socmed-line .socmed-item {
+    background-color: #be2623; }
+  body.foodkuy-green-leaf .section-profile .count {
+    color: #be2623; }
+  body.foodkuy-green-leaf .footer {
+    background-color: #be2623; }
+    body.foodkuy-green-leaf .footer .socmed .socmed-line .socmed-item {
+      color: #be2623; }
+      body.foodkuy-green-leaf .footer .socmed .socmed-line .socmed-item .si-icon {
+        color: #be2623; }
+
+/*# sourceMappingURL=stylecolor.css.map */

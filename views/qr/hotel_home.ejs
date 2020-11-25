@@ -1,0 +1,77 @@
+<% include includes/header.ejs %>
+
+<% include includes/sidebar.ejs %>
+<input type="hidden" id="hotel_id" value="<%- hotel_id %>" >
+<input type="hidden" id="src_id" value="<%- src_id %>" >
+
+
+
+<!-- Page content  -->
+        <div id="content">
+            <!-- Header  -->
+            <% include includes/title.ejs %>
+            <!-- .Header  -->
+            <!-- Content Wrap  -->
+            <div class="content-wrap">
+
+                <div class="section-home s-category">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">Menu </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home-category-list">
+                        
+                            <% cats.forEach(pcat => { %>
+                        <a href="/menu/<%= hotel_id %>/<%= src_id %>/<%- pcat._id %>">
+                            <div class="home-box-category">
+                                <div class="home-text-category">
+                                    <div class="bc-text"><%- pcat.title  %></div>
+                                </div>
+                                <div class="home-image-category">
+                                    <img src="/uploads/<%- pcat.web_img  %>" alt="<%- pcat.title  %>">
+                                </div>
+                            </div>
+                        </a>
+                            <% }); %>      
+                    </div>
+                </div>
+
+            </div>
+            <!-- .Content wrap  -->
+            <!-- Footer  -->
+            <div class="footer d-none">
+                <div class="footer-heading">Follow Us</div>
+                <div class="socmed">
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="#" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="#" class="si-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="#" class="si-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="#" class="si-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .Footer  -->
+        </div>
+        <!-- .Page content  -->
+
+<% include includes/footer.ejs %>
+
+        

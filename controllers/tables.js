@@ -11,6 +11,8 @@ const moment = require('moment');
 var User = require('../models/user');
 var QRCode = require('qrcode');
 
+console.log('in tables');
+
 
 // Tables --------------------------------------------------------------------------------
 
@@ -44,12 +46,17 @@ router.get('/addTable', auth.adminAuth, function (req, res) {
     
 });
 
+router.get('/check/:id' , function(req , res){
+    console.log('ID ' , req.params.id);
+})
+  
+
 //show Tables
 
-router.get('/allTable',auth.adminAuth, function (req, res) {
+router.get('/all_Table', function (req, res) {
     console.log('hi');
 
-    Table.find({hotel_id : req.user._id},(err , docs) => {
+    Table.find({},(err , docs) => {
 
                 res.render('admin/all_tables.ejs', {
                     tables: docs,
@@ -88,10 +95,15 @@ function insertTable(req, res) {
 });
 }
 
+router.get('/a', function(req, res) {
+    res.send('Yasir gandu')
+})
+
 //edit Table
-router.get('/editTable/:id', (req, res, next) => {
+router.get('/aa/:id', function(req, res) {
+    console.log('hi2');
     //res.send(req.params);
-    Table.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, docs) => {
+    Table.findOne({ _id: req.params.id }, (err, docs) => {
         tableId = docs.table_id;
         var link = 'http://159.8.105.84:8085/' + req.user.username + '/' + tableId;
         //res.send(link);

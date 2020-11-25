@@ -1,0 +1,111 @@
+/*================================================
+
+* Template Name: Foodkuy - Food Recipe Mobile Template
+* Version: 1.0
+* Author: HidraTheme 
+* Developed By: HidraTheme  
+* Author URL: https://themeforest.net/user/hidratheme  
+
+================================================*/
+body.foodkuy-blue-sea {
+  color: #212529; }
+  body.foodkuy-blue-sea a,
+  body.foodkuy-blue-sea a:hover {
+    color: #212529; }
+  body.foodkuy-blue-sea .btn {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .theme-button {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .theme-button-line {
+    border: 1px solid #4200ff;
+    color: #4200ff; }
+  body.foodkuy-blue-sea .theme-button:hover {
+    background-color: #2d00ac; }
+  body.foodkuy-blue-sea ul.slick-dots li button {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .share-button li a {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .form-control:focus {
+    border-color: #4200ff; }
+  body.foodkuy-blue-sea .preloading .wrap-preload {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .bg-header {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .navbar .logo,
+  body.foodkuy-blue-sea .navbar #sidebarleftbutton.btn,
+  body.foodkuy-blue-sea .navbar #sidebarrightbutton.btn {
+    color: #ffffff; }
+  body.foodkuy-blue-sea .sdprofile .sdp-right .sd-name {
+    color: #ffffff; }
+  body.foodkuy-blue-sea #sidebarleft {
+    background-color: #333; }
+    body.foodkuy-blue-sea #sidebarleft a,
+    body.foodkuy-blue-sea #sidebarleft a:hover {
+      color: #ffffff; }
+    body.foodkuy-blue-sea #sidebarleft .svg-inline--fa {
+      color: #ffffff; }
+    body.foodkuy-blue-sea #sidebarleft ul .svg-inline--fa {
+      color: #ffffff; }
+  body.foodkuy-blue-sea #sidebarleft .sidebar-header {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea #sidebarright {
+    background-color: #333; }
+    body.foodkuy-blue-sea #sidebarright a,
+    body.foodkuy-blue-sea #sidebarright a:hover {
+      color: #ffffff; }
+    body.foodkuy-blue-sea #sidebarright ul li .fas,
+    body.foodkuy-blue-sea #sidebarright ul li .svg-inline--fa {
+      color: #ffffff; }
+  body.foodkuy-blue-sea .section-home .sa-title {
+    color: #212529; }
+  body.foodkuy-blue-sea .recipe-author .author-box .author-img {
+    border: 2px solid #4200ff; }
+  body.foodkuy-blue-sea .section-home.home-news .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .section-subscribe .subcontainer .section-title {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .section-subscribe .subcontainer .submitsub {
+    background-color: #4200ff;
+    border: 1px solid #4200ff; }
+  body.foodkuy-blue-sea .section-subscribe .mail-subscribe-box input {
+    border: 1px solid #4200ff; }
+  body.foodkuy-blue-sea .section-subscribe .mail-subscribe-box i {
+    color: #4200ff;
+    border: 1px solid #4200ff; }
+  body.foodkuy-blue-sea .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .lrc-title {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .login-section .fb-text-heading {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .register-section .fb-text-heading {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .wrap-pagination .page-link {
+    color: #212529; }
+  body.foodkuy-blue-sea .wrap-pagination .page-item.active .page-link {
+    background-color: #4200ff;
+    border-color: #4200ff; }
+  body.foodkuy-blue-sea .gallery-section .filter-button {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .gallery-section .filter-button.active {
+    color: #2d00ac; }
+  body.foodkuy-blue-sea .section-news-list .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .section-profile .proname {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .section-profile .content-from .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .section-profile .socmed .socmed-line .socmed-item {
+    background-color: #4200ff; }
+  body.foodkuy-blue-sea .section-profile .count {
+    color: #4200ff; }
+  body.foodkuy-blue-sea .footer {
+    background-color: #4200ff; }
+    body.foodkuy-blue-sea .footer .socmed .socmed-line .socmed-item {
+      color: #4200ff; }
+      body.foodkuy-blue-sea .footer .socmed .socmed-line .socmed-item .si-icon {
+        color: #4200ff; }
+
+/*# sourceMappingURL=stylecolor.css.map */

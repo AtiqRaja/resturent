@@ -1,0 +1,122 @@
+<% include includes/header.ejs %>
+
+<% include includes/sidebar.ejs %>
+<input type="hidden" id="hotel_id" value="<%- hotel_id %>" >
+<input type="hidden" id="src" value="<%- src %>" >
+<input type="hidden" id="src_id" value="<%- src_id %>" >
+        <!-- Page content  -->
+        <div id="content">
+            <!-- Header  -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-header">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarleftbutton" class="btn d-none">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <div class="logo"><%- _hotel[0].hotel_name%></div>
+                    <button type="button" id="sidebarrightbutton" class="btn d-none">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- .Header  -->
+            <!-- Content Wrap  -->
+            <div class="content-wrap">
+                <!-- <div class="img-hero">
+                    <div>
+                        <img src="../../mobile/slide3.jpg" alt="slider">
+                    </div>
+                    <div>
+                        <img src="../../mobile/slide4.jpg" alt="slider">
+                    </div>
+                </div>
+                -->
+                <a href="/qr/<%- src %>/<%- hotel_id %>/<%- src_id %>">
+                    <div class="heading-page">
+                        Menu
+                        <div class="back-btn">
+                        <div class="icon-back"><i class="fas fa-chevron-left"></i></div>
+                        
+                        </div>
+                    </div>
+                    </a>
+                <div class="section-home s-category">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">Sub Menu </div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home-category-list">
+                        
+                        <% ccats.forEach(cat => { %>
+                    <a href="/qr/menu/<%= src %>/<%= hotel_id %>/<%= src_id %>/<%- cat._id %>">
+                        <div class="home-box-category">
+                            <div class="home-text-category">
+                                <div class="bc-text"><%- cat.title  %></div>
+                            </div>
+                            <div class="home-image-category">
+                                <img src="/uploads/<%- cat.web_img  %>" alt="<%- cat.title  %>">
+                            </div>
+                        </div>
+                    </a>
+                        <% }); %>
+                   
+                        
+                        
+                    </div>
+                </div>
+                
+
+            </div>
+            <!-- .Content wrap  -->
+            <!-- Footer  -->
+            <div class="footer">
+                <div class="footer-heading">Follow Us</div>
+                <div class="socmed">
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].fb_link %>" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].ig_link %>" class="si-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].tw_link %>" class="si-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].yt_link %>" class="si-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .Footer  -->
+        </div>
+        <!-- .Page content  -->
+        <div class="overlay"></div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery v3.4.1 -->
+        <script src="../../mobile/jquery-3.4.1.min.js"></script>
+        <!--  Bootstrap v4.3.1 JS -->
+        <script src="../../mobile/bootstrap.min.js"></script>
+        <!-- Magnific Popup core JS file -->
+        <script src="../../mobile/jquery.magnific-popup.js"></script>
+        <!-- Slick JS -->
+        <script src="../../mobile/slick.min.js"></script>
+        <!--  Custom JS -->
+        <script src="../../mobile/theme.js"></script>
+    </div>
+</body>
+
+<!-- Mirrored from resptheme.com/tf/foodkuy/_preview/green-leaf/homepage.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Jan 2020 19:54:06 GMT -->
+
+</html>
+
+

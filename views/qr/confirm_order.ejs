@@ -1,0 +1,211 @@
+<% include includes/header.ejs %>
+<% include includes/sidebar.ejs %>
+
+
+<div id="content">
+    <!-- Header  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-header">
+      <div class="container-fluid">
+        <button type="button" id="sidebarleftbutton" class="btn">
+        <i class="fas fa-align-left"></i>
+        </button>
+        <div class="logo"><%- username %></div>
+        <button type="button" id="sidebarrightbutton" class="btn">
+        <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </nav>
+    <!-- .Header  -->
+    <!-- Content Wrap  -->
+
+    
+        <div class="content-wrap container">
+     
+            <div class="list-section">
+                <div class="wrap-list-rc">
+    
+                    <div class="heading-page">
+                        Confirm Order
+    
+                    </div>
+                </div>
+    
+    
+                <div class="lrc-item">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="lrc-content">
+                                <div class="lrc-img">
+                                    <img style="padding-top: 15px; width: 150px; height: 100px;" src="/uploads/7OQRO-1600152060783.jpeg" alt="">
+                                </div>
+                                <div class="lrc-desc">
+                                    <div class="lrc-title">Anda Paratha</div>
+                                    <div class="lrc-text">
+                                        Description : Yummyyy
+                                    </div>
+                                    <div class="lrc-button">
+                                        <p class="mb-0" style="font-size: 1.2em;">Price : 100$</p>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4" style="padding-top: 15px;">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-dark btn-sm minus-btn" id=""><i class="fa fa-minus"></i></button>
+                                </div>
+                                <input type="number" id="qty_input" class="form-control form-control-sm text-center"
+                                    value="0" min="1" disabled>
+    
+                                <input type="hidden" id="item_id" value="">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-dark btn-sm plus-btn" id=""><i class="fa fa-plus"></i></button>
+                                </div> <br>
+    
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="form">
+                        <div style="background-color: brown;width: 30%;bottom: 30px;padding: 5px; margin: 0 auto;"
+                            class="container-fluid">
+                            <div style="text-align: center;">
+                                <label style="color: white;" for="">Confirm Order</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div>
+            <div class="wrap-pagination d-none">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    
+
+    
+    <!-- .Content wrap  -->
+    <!-- Footer  -->
+    <div class="d-none footer">
+      <div class="footer-heading">Follow Us</div>
+      <div class="socmed">
+        <div class="socmed-line">
+          <div class="socmed-item">
+            <a href="#" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="socmed-line">
+          <div class="socmed-item">
+            <a href="#" class="si-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="socmed-line">
+          <div class="socmed-item">
+            <a href="#" class="si-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="socmed-line">
+          <div class="socmed-item">
+            <a href="#" class="si-icon"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- .Footer  -->
+  </div>
+
+
+
+
+<% include includes/footer.ejs %>
+
+<script>
+
+window.onload = function() {
+
+    var cookie_cart = getCookie("cart");
+    cookie_cart = JSON.parse(cookie_cart);
+
+        $.post("/qr/get_ajax_carts", {
+                cart_items: cookie_cart
+            },
+          function (_data, status) {
+            console.log(_data, "\nStatus: " + status);
+
+            if (true) {
+                $("#GFG_DOWN").val();
+
+           
+            }
+          });
+
+ 
+
+
+       // gfg_Run();
+    
+};
+
+
+// var el_down = document.getElementById("GFG_DOWN");
+
+// order_array = [];
+
+// function getCookies() { 
+//             var cookies = document.cookie.split(';'); 
+//             var ret = ''; 
+//             for (var i = 1; i <= cookies.length; i++) { 
+//                 ret += i + ' - ' + cookies[i - 1] + "<br>"; 
+//             } 
+//             return ret; 
+//         } 
+
+// function gfg_Run() {
+
+//     el_down.innerHTML = getCookies();
+// }
+
+function updateCartCookieData() {
+
+var cookie_cart = getCookie("cart");
+cookie_cart = JSON.parse(cookie_cart);
+console.log('cookie', cookie_cart );
+
+if (cookie_cart != null) {
+
+  document.getElementById("form").style.display = "block";
+
+      order_array = cookie_cart;    
+      cookie_cart.forEach(element => {
+        
+        var item = $('input[value="'+element.item_id+'"]');
+
+        $(item).parent().parent().find('#qty_input').val( element.qty);
+        $(item).parent().parent().find('#Quantity').val( element.qty);
+
+      });
+  }
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+</script>

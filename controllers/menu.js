@@ -15,10 +15,8 @@ var ccats = require('../models/child_category');
 var items = require('../models/menu_items');
 var orders = require('../models/order');
 
-router.get("/:hotel_name/:hotel_id", (req, res) => { 
 
-    hotel_id = req.params.hotel_id;
-    Hotel_name = req.params.Hotel_name;
+router.get("/", (req, res) => { 
 
     pcats.find({status:'active'}).then(function (cats) {
         console.log(cats);
@@ -27,6 +25,205 @@ router.get("/:hotel_name/:hotel_id", (req, res) => {
         });
     })
 });
+
+// router.get("/:hotel_name/:hotel_id", (req, res) => { 
+
+//     hotel_id = req.params.hotel_id;
+//     Hotel_name = req.params.Hotel_name;
+
+//     pcats.find({status:'active'}).then(function (cats) {
+//         console.log(cats);
+//         res.render('qr/hotel_home', {
+//             items:cats
+//         });
+//     })
+// });
+
+router.get('/:hotel_id/:src_id/', function (req, res) {
+
+    hotel_id = req.params.hotel_id;
+    src_id = req.params.src_id;
+    edit = '';
+
+    //console.log(info);
+
+    User.findOne({ username: req.params.hotel_id.toString() }).then(function (_user) {
+        //console.log('_user' , _user);
+
+        if (_user) {
+
+            pcats.find({ status: 'active'}).then(function (cats) {
+                //console.log('cats' , cats);
+
+                items.find({featured: 'true' }).then(function (featured) {
+                    //console.log('featured' , featured);
+
+                    orders.find({ status: 'active' }).then(function (_order) {
+                        //console.log('_order' , _order);
+                        res.render('qr/hotel_home.ejs', {
+                            cats: cats,
+                            _hotel: _user,
+                            featured: featured,
+                            hotel_id: hotel_id,
+                            src_id: src_id,
+                            order: _order,
+                            edit: edit
+                        });
+                    })
+
+                })
+
+
+            }).catch(function (err) {
+                console.log(err);
+                return res.redirect('/');
+            })
+
+        }
+
+
+    }).catch(function (err) {
+        console.log(err);
+        return res.redirect('/');
+    })
+
+});
+
+router.get('/menu/:hotel_id/:src_id/:id/' , function (req, res) {
+
+    hotel_id = req.params.hotel_id;
+    src_id = req.params.src_id;
+
+    console.log('info');
+
+    pcats.findOne({_id:req.params.id}).then(function (parent) {
+
+        if (parent) {            
+            ccats.find({parent:req.params.id}).then(function (_ccat) {
+               //console.log('ccat : ' ,_ccat);
+                if(_ccat != '')
+                {
+                    items.find({ child: _ccat[0]._id }).then(function (itemz) {
+
+                        //console.log('cc-items', itemz);
+                        User.find({}).then(function (_user) {
+
+                            if (_user) {
+
+                                res.render('qr/child_list.ejs', {
+                                    _hotel: _user,
+                                    items: itemz,
+                                    ccats: _ccat,
+                                    hotel_id: hotel_id,
+                                    src_id: src_id
+                                });
+                            }
+                        })
+                    });
+                } else{
+                    items.find({ parent: req.params.id }).then(function (itemz) {
+
+                        //console.log('pp-items', itemz);
+                        User.find({}).then(function (_user) {
+                            //console.log('user:' , _user);
+                            if (_user) {
+
+                                res.render('qr/show_items.ejs', {
+                                    _hotel: _user,
+                                    items: itemz,
+                                    hotel_id: hotel_id,
+                                    src_id: src_id
+                                });
+                            }
+                        })
+                    });
+                }
+            })
+
+        }else{
+
+            ccats.find({_id : req.params.id}).then(function(ccats)
+            {
+                items.find({child : ccats[0]._id}).then(function(itemz)
+                {
+                    User.find({}).then(function (_user) {
+                        res.render('qr/show_items.ejs', {
+                            items: itemz,
+                            parent: parent,
+                            ccats : ccats,
+                            _hotel : _user,
+                            hotel_id: hotel_id,
+                            src_id: src_id
+
+                        });
+                    });
+                })
+            })
+
+        }
+
+        });
+
+
+});
+
+router.post('/cart/:hotel_name/:hotel_id/:src_id' , function(req, res){
+
+ 
+    var hotel_name = req.params.hotel_name;
+    var hotel_id = req.params.hotel_id;
+    var src_id = req.params.src_id;
+    cart_items = JSON.parse( req.cookies['cart']);
+    
+     var promises = cart_items.map(function (ord) {
+        return items.find({_id: ord.item_id}).then(function (results) {
+       // console.log(results);
+        ord.details = results[0];
+        return ord;
+        });
+    });
+    Promise.all(promises).then(function (userPrefs) {
+        if (userPrefs.length) {
+       // console.log(userPrefs);
+            
+        getSrcInfo(src, src_id).then(function(srcInfo){
+
+            return  res.render('qr/cart.ejs',{
+                hotel_name : hotel_name,
+                items:userPrefs,
+                cart_items: cart_items,
+                hotel_id : hotel_id,
+                src_id :src_id,
+                src_info : srcInfo
+            })
+
+        })
+
+
+        }
+  });
+
+ 
+})
+
+function getSrcInfo(src, src_id) {
+return new Promise((resolve, reject) => {
+    if (src == 't') {
+
+        Table.find({ table_id: src_id }).then(function (table) {
+            return resolve(table[0]);
+        });
+
+    } else if (src == 'r') {
+
+        Room.find({ room_id: src_id }).then(function (room) {
+            return resolve(room[0]);
+        });
+    } else {
+        return resolve('');
+    }
+})
+}
 
 router.get("/bot", (req, res) => { 
 

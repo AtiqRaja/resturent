@@ -1,0 +1,69 @@
+<% include ../qr/includes/header.ejs %>
+
+<% include ../qr/includes/sidebar.ejs %>
+<style>
+    Label{
+        float: left;
+    }
+</style>
+
+<div id="content">
+    <!-- Header  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-header">
+        <div class="container-fluid">
+            <button type="button" id="sidebarleftbutton" class="btn d-none">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <div class="logo"><%- user[0].hotel_name %></div>
+            <button type="button" id="sidebarrightbutton" class="btn d-none">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </nav>
+    <!-- .Header  -->
+    <!-- Content Wrap  -->
+    <div class="content-wrap">
+
+            <div class="container text-center">
+                <h4 class="mt-4">Your Order is prepared and will be Served Soon!</h4>
+                <a href="<%- backStr %>" class="btn btn mt-4" style="color: white;"><i class="fa fa-arrow-left"></i>  Back to Menu</a>
+            </div>
+
+
+    </div>
+    <!-- .Content wrap  -->
+    <!-- Footer  -->
+    <div class="footer">
+        <div class="footer-heading">Follow Us</div>
+        <div class="socmed">
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].fb_link %>" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].ig_link %>" class="si-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].tw_link %>" class="si-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].yt_link %>" class="si-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .Footer  -->
+</div>
+
+<!-- Default form contact -->
+<!-- Default form contact -->
+<% include ../qr/includes/footer.ejs %>

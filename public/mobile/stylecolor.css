@@ -1,0 +1,111 @@
+/*================================================
+
+* Template Name: Foodkuy - Food Recipe Mobile Template
+* Version: 1.0
+* Author: HidraTheme 
+* Developed By: HidraTheme  
+* Author URL: https://themeforest.net/user/hidratheme 
+
+================================================*/
+body.class-name {
+  color: #212529; }
+  body.class-name a,
+  body.class-name a:hover {
+    color: #212529; }
+  body.class-name .btn {
+    background-color: #95b700; }
+  body.class-name .theme-button {
+    background-color: #95b700; }
+  body.class-name .theme-button-line {
+    border: 1px solid #95b700;
+    color: #95b700; }
+  body.class-name .theme-button:hover {
+    background-color: #708a00; }
+  body.class-name ul.slick-dots li button {
+    background-color: #95b700; }
+  body.class-name .share-button li a {
+    background-color: #95b700; }
+  body.class-name .form-control:focus {
+    border-color: #95b700; }
+  body.class-name .preloading .wrap-preload {
+    background-color: #95b700; }
+  body.class-name .bg-header {
+    background-color: #95b700; }
+  body.class-name .navbar .logo,
+  body.class-name .navbar #sidebarleftbutton.btn,
+  body.class-name .navbar #sidebarrightbutton.btn {
+    color: #ffffff; }
+  body.class-name .sdprofile .sdp-right .sd-name {
+    color: #ffffff; }
+  body.class-name #sidebarleft {
+    background-color: #333; }
+    body.class-name #sidebarleft a,
+    body.class-name #sidebarleft a:hover {
+      color: #ffffff; }
+    body.class-name #sidebarleft .svg-inline--fa {
+      color: #ffffff; }
+    body.class-name #sidebarleft ul .svg-inline--fa {
+      color: #95b700; }
+  body.class-name #sidebarleft .sidebar-header {
+    background-color: #95b700; }
+  body.class-name #sidebarright {
+    background-color: #333; }
+    body.class-name #sidebarright a,
+    body.class-name #sidebarright a:hover {
+      color: #ffffff; }
+    body.class-name #sidebarright ul li .fas,
+    body.class-name #sidebarright ul li .svg-inline--fa {
+      color: #95b700; }
+  body.class-name .section-home .sa-title {
+    color: #212529; }
+  body.class-name .recipe-author .author-box .author-img {
+    border: 2px solid #95b700; }
+  body.class-name .section-home.home-news .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #95b700; }
+  body.class-name .section-subscribe .subcontainer .section-title {
+    color: #95b700; }
+  body.class-name .section-subscribe .subcontainer .submitsub {
+    background-color: #95b700;
+    border: 1px solid #95b700; }
+  body.class-name .section-subscribe .mail-subscribe-box input {
+    border: 1px solid #95b700; }
+  body.class-name .section-subscribe .mail-subscribe-box i {
+    color: #95b700;
+    border: 1px solid #95b700; }
+  body.class-name .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #95b700; }
+  body.class-name .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .lrc-title {
+    color: #95b700; }
+  body.class-name .author-list-section .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #95b700; }
+  body.class-name .login-section .fb-text-heading {
+    color: #95b700; }
+  body.class-name .register-section .fb-text-heading {
+    color: #95b700; }
+  body.class-name .wrap-pagination .page-link {
+    color: #212529; }
+  body.class-name .wrap-pagination .page-item.active .page-link {
+    background-color: #95b700;
+    border-color: #95b700; }
+  body.class-name .gallery-section .filter-button {
+    color: #95b700; }
+  body.class-name .gallery-section .filter-button.active {
+    color: #708a00; }
+  body.class-name .section-news-list .home-news-wrap .news-item .news-content .hnw-desc .more {
+    color: #95b700; }
+  body.class-name .section-profile .proname {
+    color: #95b700; }
+  body.class-name .section-profile .content-from .wrap-list-rc .lrc-item .lrc-content .lrc-desc .more {
+    color: #95b700; }
+  body.class-name .section-profile .socmed .socmed-line .socmed-item {
+    background-color: #95b700; }
+  body.class-name .section-profile .count {
+    color: #95b700; }
+  body.class-name .footer {
+    background-color: #95b700; }
+    body.class-name .footer .socmed .socmed-line .socmed-item {
+      color: #95b700; }
+      body.class-name .footer .socmed .socmed-line .socmed-item .si-icon {
+        color: #95b700; }
+
+/*# sourceMappingURL=stylecolor.css.map */

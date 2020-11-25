@@ -1,0 +1,471 @@
+<% include includes/header.ejs %>
+
+<style>
+  .animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+.modal-dialog{
+  margin: 0 auto !important;
+}
+
+.modal-title{
+  font-size: 1.2em;
+}
+
+.cart-bar{
+  /* background-color: #f02929; */
+  background-color: #000000;
+  width: 90%;
+  position: absolute;
+  bottom: 0px;
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50px;
+  color:white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.cart-bar .right{
+  color: white;
+    padding-top: 5px;
+    padding-right: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#totalItem{
+  font-size: 16px;
+    padding-top: 5px;
+}
+
+</style>
+
+<% include includes/sidebar.ejs %>
+<input type="hidden" id="hotel_id" value="<%- hotel_id %>" >
+<input type="hidden" id="src_id" value="<%- src_id %>" >
+        <!-- Page content  -->
+        <div id="content">
+          <!-- Header  -->
+          <!-- .Header  -->
+          <!-- Content Wrap  -->
+          <div class="content-wrap">
+        
+            <div class="list-section">
+              <div class="wrap-list-rc">
+                <a href="/<%- hotel_id %>/<%- src_id %>">
+                  <div class="heading-page">
+                    Menu
+                    <div class="back-btn">
+                      <div class="icon-back"><i class="fas fa-chevron-left"></i></div>
+        
+                    </div>
+                  </div>
+                </a>
+        
+                <% items.forEach((element, key) => { %>
+                <div class="lrc-item">
+                  <div class="row">
+                    <div class="col-8">
+                      <div class="lrc-content">
+                        <div class="lrc-img">
+                          <img src="/uploads/<%- element.web_img  %>" alt="image">
+                        </div>
+                        <a class="itemModal" id="<%- element._id  %>" href="#" data-toggle="modal"
+                          data-target="#exampleModalCenter">
+                          <div style="padding-left: 60px;" class="lrc-desc">
+                            <div class="lrc-title"><%- element.item  %></div>
+                            <div class="lrc-button">
+                              <p class="mb-0" style="font-size: 1.2em;">Price : <%- element.price  %></p>
+                              <% if(element.discount > 0){ %>
+                              <p style="color: red;">Discount : <%- element.discount  %> % off</p>
+                              <% } %>
+                              <div class="clear"></div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-dark btn-sm minus-btn" id=""><i class="fa fa-minus"></i></button>
+                        </div>
+                        <input type="number" id="qty_input" class="form-control form-control-sm text-center" value="0" min="1"
+                          disabled>
+        
+                        <input type="hidden" id="item_id" value="<%- element._id  %>">
+                        <div class="input-group-prepend">
+                          <button class="btn btn-dark btn-sm plus-btn" id=""><i class="fa fa-plus"></i></button>
+                        </div> <br>
+        
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+                <hr>
+        
+                <% }); %>
+        
+                <form action="/qr/cart/<%= _hotel[0].username %>/<%= hotel_id %>/<%= src_id %>" method="POST" id="form">
+                  <div class="cart-bar container-fluid ml-3" onClick='submitDetailsForm()'>
+                     <!-- <div id="totalItem"></div> -->
+                     <input type="hidden" id="cart_items" name="cart_items">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="right">
+                          View Cart <i class="fa fa-arrow-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                </form>
+        
+        
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- .Content wrap  -->
+        
+        <!-- </div> -->
+        <!-- .Page content  -->
+<% include includes/footer.ejs %>
+
+
+<script>
+
+// define variables
+
+
+ function submitDetailsForm() {
+       $("#form").submit();
+    }
+
+$(document).ready(function () {
+  document.getElementById("form").style.display = "none";
+  updateCartCookieData();
+      updateTotalItems();
+      update_order();
+})    
+
+
+order_array = [];
+
+function getCookies() { 
+            var cookies = document.cookie.split(';'); 
+            var ret = ''; 
+            for (var i = 1; i <= cookies.length; i++) { 
+                ret += i + ' - ' + cookies[i - 1] + "<br>"; 
+            } 
+            return ret;
+        } 
+
+        function gfg_Run() { 
+            el_down.innerHTML = getCookies(); 
+        } 
+
+function updateTotalItems() {
+
+  var cookie_cart = getCookie("cart");
+  $("#cart_items").val(cookie_cart);
+  
+  cookie_cart = JSON.parse(cookie_cart);
+  
+  var total = 0;
+
+  cookie_cart.forEach(e => {
+          total = total + e.qty;
+        });
+
+        $('#totalItem').html(total + ' Items');    
+        
+}        
+
+function updateCartCookieData() {
+
+var cookie_cart = getCookie("cart");
+$("#cart_items").val(cookie_cart);
+
+cookie_cart = JSON.parse(cookie_cart);
+
+if (cookie_cart != null) {
+
+  document.getElementById("form").style.display = "block";
+
+      order_array = cookie_cart;    
+      cookie_cart.forEach(element => {
+        
+        var item = $('input[value="'+element.item_id+'"]');
+        $(item).parent().parent().find('#qty_input').val( element.qty);
+        
+      });
+
+  }
+
+}
+
+
+function updateCartCookieData1() {
+
+  var cookie_cart = getCookie("cart");
+  cookie_cart = JSON.parse(cookie_cart);
+  console.log('cookie', cookie_cart );
+
+  if (cookie_cart != null) {
+
+    document.getElementById("form").style.display = "block";
+
+        order_array = cookie_cart;    
+        cookie_cart.forEach(element => {
+          
+          var item = $('input[value="'+element.item_id+'"]');
+          $(item).parent().parent().find('#qty_input').val( element.qty);
+          
+        });
+  
+    }
+  
+}
+
+function update_order(item_id, op){
+
+  var cookie_cart = getCookie("cart");
+  cookie_cart = JSON.parse(cookie_cart);
+  console.log('cookie', cookie_cart );
+
+  if (cookie_cart != null) {
+
+        order_array = cookie_cart;    
+        
+    }
+    
+  console.log('order_array', order_array);
+
+      
+  if (op == "+") {
+   item_index = order_array.findIndex(x => x.item_id === item_id);  
+   if(item_index != -1) {
+          order_array[item_index].qty =   order_array[item_index].qty+1;
+          
+   }else{
+      order_array.push({item_id:item_id,qty:1});
+    }
+
+  }
+  
+  if (op == "-") {
+   item_index = order_array.findIndex(x => x.item_id === item_id);  
+   if(item_index != -1) {
+          order_array[item_index].qty =   order_array[item_index].qty-1  ;
+          if (order_array[item_index].qty === 0) {
+            order_array.splice(item_index, 1); 
+          }
+   }
+
+    console.log('new array', order_array);
+  }
+
+      if (order_array.length > 0) {
+
+        if (item_index == -1) {
+          item_index = order_array.findIndex(x => x.item_id === item_id);
+        }
+
+          var quantity = order_array[item_index].qty;
+
+        
+          if(quantity)
+          {
+            document.getElementById("form").style.display = "block"
+          }
+
+      }else{
+        document.getElementById("form").style.display = "none"
+      }
+   
+  //  cart_info = {
+  //    hotel_id:hotel_id,
+  //    src:src,
+  //    src_id:src_id,
+  //    cart:order_array
+  //  }
+   
+  //  cart_variable = hotel_id+'-'+src+'-'+src_id;
+
+   setCookie("cart",JSON.stringify(order_array),30); 
+   updateTotalItems();   
+  
+  
+}
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+
+$(document).ready(function(){
+            
+        $('.plus-btn').click(function(){
+                item_id = $(this).parent().parent().find('#item_id').val();
+                qty_val = parseInt($(this).parent().parent().find('#qty_input').val());
+                $(this).parent().parent().find('#qty_input').val(qty_val + 1 );
+                update_order(item_id, "+");                
+          });
+          
+        $('.minus-btn').click(function(){
+             $('#qty_input').val(parseInt($('#qty_input').val()) - 1 );
+             update_order(item_id, "-");
+            if ($('#qty_input').val() < 1) {
+                $('#qty_input').val(0);
+                
+            }
+    	  });
+ });
+
+    $(document).ready(function () {
+      $('.itemModal').on('click', function () {
+  
+        item_id = $(this).attr("id");
+  
+        $.post("/admin/hotel/get_ajax_item", {
+          item_id: item_id
+        },
+          function (_data, status) {
+            console.log(_data, "\nStatus: " + status);
+            
+
+            if (true) {
+              if (true) {
+
+                $("#exampleModalCenter").modal();
+
+              }
+            }
+          });
+      });
+    });
+  </script>
+  
+  
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content animate-bottom">
+      <% items.forEach(item => { %>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%- item.item  %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="food-page-section">
+          <div class="wrap-food-recipe">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="image-favourite">
+                  <div id="food-recipe-image" class="pg-product-image">
+                    <div>
+
+                      <div class="pgp-wrap-img">
+                        <div class="pgp-wrap-img-in">
+                          <div class="pgp-img">
+                            <!-- <img src="../../../../mobile/food1.jpg" alt="2nd image"> -->
+                            <img src="/uploads/<%- item.web_img  %>" />
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="d-none add-favourite">
+                    <div class="awl-btn">
+                      <div class="awl-btn-icon">
+                        <i class="fas fa-heart"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="recipe-description">
+                  <div class="rd-tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#tab1">Description</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div id="tab1" class=" tab-pane active">
+                        <div class="tab-detail-rcp">
+                          <div class="recp-detail"> <%- item.desc %> </div>
+                          <div class="recp-detail"> Price: <%- item.price %> </div>
+                          <% if(item.discount > 0){ %>
+                          <div class="recp-detail" style="color: red;">Discount : <%- item.discount  %> % off</div>
+                          <% } %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <%   });  %>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <!-- Modal -->
+ 
+</html>

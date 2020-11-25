@@ -1,0 +1,270 @@
+<% include includes/header.ejs %>
+
+<% include includes/sidebar.ejs %>
+ 
+        <!-- Page content  -->
+        <div id="content">
+            <!-- Header  -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-header">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarleftbutton" class="btn d-none">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+                    <div class="logo">QJump</div>
+                    <button type="button" id="sidebarrightbutton" class="btn d-none">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- .Header  -->
+            <!-- Content Wrap  -->
+            <div class="content-wrap">
+                <div class="img-hero">
+                    <div>
+                        <img src="../../mobile/slide3.jpg" alt="slider">
+                    </div>
+                    <div>
+                        <img src="../../mobile/slide4.jpg" alt="slider">
+                    </div>
+                </div>
+                <div class="section-home you-might-like">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">Recipes You Might Like...</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="yml-carousel">
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food9.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Chicken Fried Steak</div>
+                        </div>
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food10.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Grilled Fish Tacos</div>
+                        </div>
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food11.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Steak with Garlic</div>
+                        </div>
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food12.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Harvest Salad</div>
+                        </div>
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food13.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Cheesy Pizza</div>
+                        </div>
+                        <div class="yml-box">
+                            <div class="yml-img">
+                                <img src="../../mobile/food14.jpg" alt="you might like">
+                            </div>
+                            <div class="yml-food-text">Teriyaki Chicken</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-home s-category">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">Parent Categories <%- username%></div>
+                        <div class="clear"></div>
+                    </div>
+                    
+                    <div class="home-category-list">
+                        
+                        <% items.forEach(item => { %>
+                    <a href="/qr/menu/<%= item._id %>">
+                        <div class="home-box-category">
+                            <div class="home-text-category">
+                                <div class="bc-text"><%- item.title  %></div>
+                            </div>
+                            <div class="home-image-category">
+                                <img src="/uploads/<%- item.web_img  %>" alt="<%- item.title  %>">
+                            </div>
+                        </div>
+                    </a>
+                        <% }); %>
+                   
+                        
+                        <div class="clear"></div>
+                        <div class=" more-category">
+                            <div class="theme-button mcbutton">See More</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-home home-banner d-none">
+                    <img src="../../mobile/banner.jpg">
+                </div>
+                <div class="section-home home-news">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">News & Tips</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="home-news-wrap">
+                        <div class="news-item">
+                            <div class="news-content">
+                                <div class="hnw-img">
+                                    <img src="../../mobile/news.jpg" alt="news">
+                                </div>
+                                <div class="hnw-desc">
+                                    <div class="hnw-title">15 Totally Healthy Grilling Recipes</div>
+                                    <div class="hnw-text">
+                                        Lorem ipsum dolor sit amet, adipiscing elit... <a href="news.html"
+                                            class="more">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-content">
+                                <div class="hnw-img">
+                                    <img src="../../mobile/news2.jpg" alt="news">
+                                </div>
+                                <div class="hnw-desc">
+                                    <div class="hnw-title">Foods That Are Super Healthy</div>
+                                    <div class="hnw-text">
+                                        dolor sit amet, Lorem ipsum adipiscing elit... <a href="news.html"
+                                            class="more">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-content">
+                                <div class="hnw-img">
+                                    <img src="../../mobile/news3.jpg" alt="news">
+                                </div>
+                                <div class="hnw-desc">
+                                    <div class="hnw-title">17 Authentic local food in Yogyakarta</div>
+                                    <div class="hnw-text">
+                                        Lorem ipsum dolor adipiscing elit... <a href="news.html" class="more">Read
+                                            More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" more-category">
+                            <a href="news_list.html">
+                                <div class="theme-button mcbutton">More News</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-home recipe-author">
+                    <div class="heading-section">
+                        <div class="sa-title popcat">Top Author</div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="home-author">
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Amanda</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile2.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Nicola</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile8.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Sally</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile4.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Connor</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile5.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Olivia</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile6.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Peter</div>
+                        </div>
+                        <div class="author-box">
+                            <div class="author-img">
+                                <img src="../../mobile/profile7.jpg" alt="author">
+                            </div>
+                            <div class="author-name">Walker</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBSCRIBE -->
+                <div class="section-subscribe">
+                    <div class="subcontainer">
+                        <div class="subrow">
+                            <div class="subcol">
+                                <div class="section-title">SUBSCRIBE</div>
+                                <p class="textsub">Get news and food recipes every day</p>
+                                <div class="mail-subscribe-box">
+                                    <form name="subsribe">
+                                        <input class="form-control" name="user-email" placeholder="Enter email address"
+                                            value="" type="email">
+                                        <button type="submit" class="submitsub"> <i
+                                                class="fa fa-angle-right"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-subscribe d-none">
+                        <img src="../../mobile/food4.jpg" alt="banner">
+                    </div>
+                </div>
+                <!-- END SUBSCRIBE -->
+
+            </div>
+            <!-- .Content wrap  -->
+            <!-- Footer  -->
+            <div class="footer">
+                <div class="footer-heading">Follow Us</div>
+                <div class="socmed">
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].fb_link %>" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].ig_link %>" class="si-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].tw_link %>" class="si-icon"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="socmed-line">
+                        <div class="socmed-item">
+                            <a target="_blank" href="<%- permission[0].yt_link %>" class="si-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .Footer  -->
+        </div>
+        <!-- .Page content  -->
+        
+<% include includes/footer.ejs %>

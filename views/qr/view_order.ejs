@@ -1,0 +1,169 @@
+<% include includes/header.ejs %>
+
+<style>
+    .animate-bottom {
+        position: relative;
+        animation: animatebottom 0.4s;
+    }
+
+    @keyframes animatebottom {
+        from {
+            bottom: -300px;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 1;
+        }
+    }
+
+    .modal-dialog {
+        margin: 0 auto !important;
+    }
+
+    .modal-title {
+        font-size: 1.2em;
+    }
+
+    .cart-bar {
+        background-color: #f02929;
+        width: 90%;
+        position: absolute;
+        bottom: 20px;
+        padding: 5px;
+        margin: 0 auto;
+        border-radius: 5px;
+        height: 50px;
+        color: white;
+        padding-left: 10px;
+    }
+
+    .cart-bar .right {
+        color: white;
+        padding-top: 5px;
+        padding-right: 10px;
+        font-size: 16px;
+    }
+
+    #totalItem {
+        font-size: 16px;
+        padding-top: 5px;
+    }
+</style>
+
+<% include includes/sidebar.ejs %>
+
+<!-- Page content  -->
+<div id="content">
+    <!-- Header  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-header">
+        <div class="container-fluid">
+            <button type="button" id="sidebarleftbutton" class="btn d-none">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <div class="logo"><%- user %></div>
+            <button type="button" id="sidebarrightbutton" class="btn d-none">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </nav>
+    <!-- .Header  -->
+    <!-- Content Wrap  -->
+    <div class="content-wrap">
+
+        <div class="list-section">
+            <div class="wrap-list-rc">
+                <a href="<%- backStr %>">
+                    <div class="heading-page">
+                        Order Details
+                        <div class="back-btn">
+                            <div class="icon-back"><i class="fas fa-chevron-left"></i></div>
+
+                        </div>
+                    </div>
+                </a>
+
+                <% order.forEach((ord, key) => { %>
+                <div class="lrc-item">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="lrc-content">
+                                <div class="lrc-desc">
+                                    <div class="lrc-title">Order # <%- ord.order_id  %></div>
+                                    <% items.forEach((item , key) => { %>
+                                            <div class="lrc-text">
+                                                <div class="yml-img">
+                                                    <img width="30%" src="/uploads/<%- item.web_img  %>" alt="image">
+                                                    <div class="yml-food-text"><strong><%- item.item %></strong></div>
+                                                  </div>
+                                            </div>
+                                            <div class="lrc-text">
+                                                Description : <%- item.desc  %>
+                                            </div>
+                                            <div class="lrc-button">
+                                                <p class="mb-0" style="font-size: 1.2em;">Price : <%- item.price  %></p>
+                                                <% if(item.discount > 0){ %>
+                                                <p style="color: red;">Discount : <%- item.discount  %> % off</p>
+                                                <% } %>
+                                                <div class="clear"></div>
+                                                <div class="lrc-text">
+                                                    Estimated Time to Prepare : <%- item.prep_time  %> Minutes
+                                                </div>
+                                                <div class="container-wrap">
+                                                    <a href="/qr/update_aproval/<%= ord.order_id  %>/update" style="color: white;" type="button" class="btn btn-info">Edit</a>
+                                                    <button type="button" class="btn btn-secondary">Delete</button>
+                                                </div>
+                                            </div>
+
+                                    <% }); %>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-heading">Follow Us</div>
+        <div class="socmed">
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].fb_link %>" class="si-icon"> <i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].ig_link %>" class="si-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].tw_link %>" class="si-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="socmed-line">
+                <div class="socmed-item">
+                    <a target="_blank" href="<%- permission[0].yt_link %>" class="si-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- .Content wrap  -->
+
+<!-- </div> -->
+<!-- .Page content  -->
+<% include includes/footer.ejs %>
+
+
+</html>

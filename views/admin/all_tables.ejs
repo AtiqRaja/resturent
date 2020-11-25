@@ -7,7 +7,7 @@
     <div class="card-header mt-2">
       <h3 class="card-title">
         All Tables
-        <a style="float: right;" href="/tables/addTable" class="btn btn-primary font-weight-bolder">
+        <a style="float: right;" href="/addTable" class="btn btn-primary font-weight-bolder">
             <i class="la la-plus"></i>
             New Table
         </a>
@@ -47,8 +47,8 @@
               <td><%- element.chairs  %></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                  <a href="/tables/editTable/<%- element._id  %>" class="btn btn-secondary">Edit</a>
-                  <a href="/tables/deleteTable/<%- element._id  %>" class="btn btn-secondary">Delete</a>
+                  <a href="/check/<%- element._id  %>" class="btn btn-secondary">Edit</a>
+                  <a href="/deleteTable/<%- element._id  %>" class="btn btn-secondary">Delete</a>
   
                 </div>
               </td>

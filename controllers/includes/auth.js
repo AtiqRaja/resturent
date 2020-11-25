@@ -2,9 +2,9 @@
 // Access Control
 class auth {
      ensureAuthenticated(req, res, next) {
-            console.log('authentication:');
+            //console.log('authentication:');
 
-            console.log(req.user);
+            //console.log(req.user);
             if (req.isAuthenticated()) {
 
                 return next();
