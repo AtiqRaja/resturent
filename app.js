@@ -104,19 +104,13 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// var passportOneSessionPerUser = require('passport-one-session-per-user');
-// passport.use(new passportOneSessionPerUser());
-// app.use(passport.authenticate('passport-one-session-per-user'));
 
-app.get('*', function(req, res, next) {
-    
+app.get('*', function(req, res, next) { 
     res.locals.user = req.user || null;
-    //next();
+    next();
 });
 
-
-// app.get("/", (req, res) => { 
-    
+// app.get("/", (req, res) => {  
 //         res.render('website/touchView');
 // });
 
@@ -128,7 +122,6 @@ app.get("/games", (req, res) => {
     res.render('website/games');
 });
 
-
 app.get("/pingpong", (req, res) => {
     res.render('website/pingpong');
 });
@@ -136,7 +129,6 @@ app.get("/pingpong", (req, res) => {
 app.get("/hockey", (req, res) => {
     res.render('website/hockey');
 });
-
 
 app.get("/about", (req, res) => {
     res.render('website/about', {
@@ -149,49 +141,18 @@ app.get("/contact", (req, res) => {
     });
 });
 
-app.get("/celebrate", (req, res) => {
-    res.render('website/celebrate', {
-        status:false
-    });
-});
-
-app.post("/celebrate", (req, res) => {
-
-    console.log(req.body);
-
-    asuman_emails.celebration_mail(req.body.name, req.body.email, req.body.message, req.body.mobile, req.body.noOfPerson, req.body.celbrationDate);
-
-    res.render('website/celebrate', {
-        status:true
-    });
-});
-
-
-app.post('/contact', function(req, res, next) {
-
-    asuman_emails.contact_us_mail(req.body.name, req.body.email, req.body.message, req.body.mobile);
-
-    res.render('website/contact', {
-        status:true
-    });
-
-});
-
-
 var user = require('./controllers/user');
 app.use('/', user);
 
-// var menu = require('./controllers/menu');
-// app.use('/', menu);
+var menu = require('./controllers/menu');
+app.use('/', menu);
 
-// var table = require('./controllers/tables');
-// app.use('/t', table);
-
+var table = require('./controllers/tables');
+app.use('/t', table);
 
 app.get('*', function(req, res) {
     res.status(400).render('404');
 });
-
 
 app.listen(port, bindip, () => {
     console.log('Server listing on IP ' + bindip + ' and port ' + port);
