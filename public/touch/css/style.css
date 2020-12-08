@@ -90,6 +90,14 @@ body {
     margin-left: 20%;
     margin-top: 5%;
 }
+.floatRight {
+    float: right;
+}
+.resetDiv {
+    position: absolute;
+    top: 5%;
+    right: 0%;
+}
 .addToCartButton{
     padding: 2px;
     border: 2px solid #ffffff6b;

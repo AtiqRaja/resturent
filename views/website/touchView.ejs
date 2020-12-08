@@ -14,142 +14,149 @@
     <body>
 	<div class="row">
 		<div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="back animated fadeIn slower">
-            <div class="tableDisplay">
-                <div class="verticalAlign">
-                    <div class="row">
-                        <div class="rotateText textDiv heightDiv">
-                            <div class="w-100 p-3">
-                                <div id="upText1" class="animated slideInRight slower">
-                                    <h1> Good Food is a Good Mood </h1>
-                                </div>
+            <div class="back animated fadeIn slower">           
+                <div class="tableDisplay">
+                    <div class="verticalAlign">
+                        <div class="row resetDiv">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <button class="btn btn-primary floatRight" id="resetBtn"> 
+                                    <i class="fa fa-undo"></i> Reset 
+                                </button>
                             </div>
-                            <div class="w-80 p-3">  
-                                <div class="hide" id="upText2">
-                                    <h1> Intrested to know the Secret Ingredient? </h1>
-                                </div> 
-                            </div>
-                            <div class="hide" id="upTouch">
-                                <div class="ripple">
-                                    <div class="text">
-                                        <span> TOUCH </span>
-                                        <span> TO </span>
-                                        <span> INTERACT </span> 
-                                    </div>
-                                    <div class="image animated pulse faster infinite">
-                                        <img src="../../touch/images/hand.png" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hide" id="upTable">
-                                <div class="tableImgUp animated zoomIn slower">
-                                    <div id="umenu">
-                                    <div class="hide whiteBackgroup textUp animated zoomIn slower" id="textR">
-                                        <span> Call for Table Service </span>
-                                    </div>
-                                    <div class="hide whiteBackgroup text1Up animated zoomIn slower" id="textR1">
-                                        <span> Chef'Special </span>
-                                    </div>
-                                    <div class="hide whiteBackgroup text2Up animated zoomIn slower" id="textR2">
-                                        <span> Today's Menu </span>
-                                    </div>
-                                    <div class="hide whiteBackgroup text3Up animated zoomIn slower" id="textR3">
-                                        <span> We know your Taste </span>
-                                    </div>
-                                    <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
-                                </div>
-                                </div>
-                                <div id="umenu1" class="hide">
-                                    <div class="uchefImg animated zoomIn slower">
-                                        <img src="../../touch/images/backText.png" class="animated rotateIn slower" width="100%" >
-                                        
-                                        <!-- <span class="backText"> BACK </span> -->
-                                    </div>
-                                    <img src="../../touch/images/menu-ins-up.png" class="umenuImg hide" id="umenuImg">
-                                    <img src="../../touch/images/menu-ins.png" class="umenuImg1 hide" id="umenuImg1">
-                                    <div class="hide umenuText" id="umenuText">
-                                        <%  items.forEach(i => { %>
-                                            <div class="row uparent" id="<%- i._id %>">
-                                                <div class="col-md-7">  <%- i.title %> </div>
-                                                <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
-                                            </div>
-                                         <% }); %>
-                                              
-                                    </div>
-                                </div>
-                            </div>  
                         </div>
-                    </div>
-                    <div class="container">
-                        <img src="../../touch/images/line.png" class="img-fluid animated zoomIn slower" >
-                    </div>
-                    <div class="row">
-                        <div class="textDiv heightDiv">
-                            <div class="w-100 p-3">
-                                <div id="downText1" class="animated slideInRight slower">
-                                    <h1> What to know what's special today? </h1>
-                                </div>
-                            </div>
-                            <div class="w-100 p-3">
-                                <div class="hide" id="downText2">
-                                    <h1> Our aim is to offer Simple, Fresh, Good Food. </h1>
-                                </div>
-                            </div>
-                            <div class="hide" id="downTouch">
-                                <div class="ripple" style="width: 23% !important;">
-                                    <div class="text">
-                                        <span> TOUCH </span>
-                                        <span> TO </span>
-                                        <span> INTERACT </span> 
-                                    </div>
-                                    <div class="image animated pulse faster infinite">
-                                        <img src="../../touch/images/hand.png" >
+                        <div class="row">
+                            <div class="rotateText textDiv heightDiv">
+                                <div class="w-100 p-3">
+                                    <div id="upText1" class="animated slideInRight slower">
+                                        <h1> Good Food is a Good Mood </h1>
                                     </div>
                                 </div>
-                            </div> 
-                            <div class="hide" id="downTable">
-                                <div class="tableImgDown animated zoomIn slower">
-                                    <div id="menu">
-                                        <div class="hide whiteBackgroup text animated zoomIn slower" id="text">
+                                <div class="w-80 p-3">  
+                                    <div class="hide" id="upText2">
+                                        <h1> Intrested to know the Secret Ingredient? </h1>
+                                    </div> 
+                                </div>
+                                <div class="hide" id="upTouch">
+                                    <div class="ripple">
+                                        <div class="text">
+                                            <span> TOUCH </span>
+                                            <span> TO </span>
+                                            <span> INTERACT </span> 
+                                        </div>
+                                        <div class="image animated pulse faster infinite">
+                                            <img src="../../touch/images/hand.png" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hide" id="upTable">
+                                    <div class="tableImgUp animated zoomIn slower">
+                                        <div id="umenu">
+                                        <div class="hide whiteBackgroup textUp animated zoomIn slower" id="textR">
                                             <span> Call for Table Service </span>
                                         </div>
-                                        <div class="hide whiteBackgroup text1 animated zoomIn slower" id="text1">
+                                        <div class="hide whiteBackgroup text1Up animated zoomIn slower" id="textR1">
                                             <span> Chef'Special </span>
                                         </div>
-                                        <div class="hide whiteBackgroup text2 animated zoomIn slower" id="text2">
+                                        <div class="hide whiteBackgroup text2Up animated zoomIn slower" id="textR2">
                                             <span> Today's Menu </span>
                                         </div>
-                                        <div class="hide whiteBackgroup text3 animated zoomIn slower" id="text3">
+                                        <div class="hide whiteBackgroup text3Up animated zoomIn slower" id="textR3">
                                             <span> We know your Taste </span>
                                         </div>
                                         <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
                                     </div>
-                                    <div id="menu1" class="hide">
-                                        <div class="animated zoomIn slower">
-                                            <img src="../../touch/images/backText.png" class="chefImg animated rotateIn slower" >
+                                    </div>
+                                    <div id="umenu1" class="hide">
+                                        <div class="uchefImg animated zoomIn slower">
+                                            <img src="../../touch/images/backText.png" class="animated rotateIn slower" width="100%" >
                                             
                                             <!-- <span class="backText"> BACK </span> -->
                                         </div>
-                                        <img src="../../touch/images/menu-ins-up.png" class="menuImg hide" id="menuImg">
-                                        <img src="../../touch/images/menu-ins.png" class="menuImg1 hide" id="menuImg1">
-                                            <div class="hide menuText" id="menuText">
+                                        <img src="../../touch/images/menu-ins-up.png" class="umenuImg hide" id="umenuImg">
+                                        <img src="../../touch/images/menu-ins.png" class="umenuImg1 hide" id="umenuImg1">
+                                        <div class="hide umenuText" id="umenuText">
+                                            <%  items.forEach(i => { %>
+                                                <div class="row uparent" id="<%- i._id %>">
+                                                    <div class="col-md-7">  <%- i.title %> </div>
+                                                    <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
+                                                </div>
+                                             <% }); %>   
+
+                                       </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="container">
+                            <img src="../../touch/images/line.png" class="img-fluid animated zoomIn slower" >
+                        </div>
+                        <div class="row">
+                            <div class="textDiv heightDiv">
+                                <div class="w-100 p-3">
+                                    <div id="downText1" class="animated slideInRight slower">
+                                        <h1> What to know what's special today? </h1>
+                                    </div>
+                                </div>
+                                <div class="w-100 p-3">
+                                    <div class="hide" id="downText2">
+                                        <h1> Our aim is to offer Simple, Fresh, Good Food. </h1>
+                                    </div>
+                                </div>
+                                <div class="hide" id="downTouch">
+                                    <div class="ripple" style="width: 23% !important;">
+                                        <div class="text">
+                                            <span> TOUCH </span>
+                                            <span> TO </span>
+                                            <span> INTERACT </span> 
+                                        </div>
+                                        <div class="image animated pulse faster infinite">
+                                            <img src="../../touch/images/hand.png" >
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="hide" id="downTable">
+                                    <div class="tableImgDown animated zoomIn slower">
+                                        <div id="menu">
+                                            <div class="hide whiteBackgroup text animated zoomIn slower" id="text">
+                                                <span> Call for Table Service </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text1 animated zoomIn slower" id="text1">
+                                                <span> Chef'Special </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text2 animated zoomIn slower" id="text2">
+                                                <span> Today's Menu </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text3 animated zoomIn slower" id="text3">
+                                                <span> We know your Taste </span>
+                                            </div>
+                                            <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
+                                        </div>
+                                        <div id="menu1" class="hide">
+                                            <div class="animated zoomIn slower">
+                                                <img src="../../touch/images/backText.png" class="chefImg animated rotateIn slower" >
+                                                
+                                                <!-- <span class="backText"> BACK </span> -->
+                                            </div>
+                                            <img src="../../touch/images/menu-ins-up.png" class="menuImg hide" id="menuImg">
+                                            <img src="../../touch/images/menu-ins.png" class="menuImg1 hide" id="menuImg1">
+                                                <div class="hide menuText" id="menuText">
                                                 <%  items.forEach(i => { %>
                                                     <div class="row parent" id="<%- i._id %>">
                                                         <div class="col-md-7">  <%- i.title %> </div>
                                                         <div class="col-md-1"> <i class="fa fa-arrow-right"></i> </div>
                                                     </div>
                                                 <% }); %>
-                                                    
-                                            </div>
-                                        
+
+                                                </div>
+                                            
+                                        </div>
                                     </div>
-                                </div>
-                            </div> 
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 		</div>
     </div>
     
@@ -186,6 +193,10 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
     <script type="text/javascript">
+        $('#resetBtn').click(() => {
+            location.reload();
+            return false;
+        })
         setTimeout(() => {
             $('#upText1').removeClass('slideInRight');
             $('#upText1').addClass('fadeOutLeft slower');
