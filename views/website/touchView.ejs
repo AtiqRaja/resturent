@@ -19,7 +19,7 @@
                     <div class="verticalAlign">
                         <div class="row resetDiv">
                             <div class="col-sm-12 col-md-12 col-lg-12">
-                                <button class="btn btn-primary floatRight" id="resetBtn"> 
+                                <button type="reset" class="btn btn-primary floatRight" id="resetBtn"> 
                                     <i class="fa fa-undo"></i> Reset 
                                 </button>
                             </div>
@@ -51,20 +51,20 @@
                                 <div class="hide" id="upTable">
                                     <div class="tableImgUp animated zoomIn slower">
                                         <div id="umenu">
-                                        <div class="hide whiteBackgroup textUp animated zoomIn slower" id="textR">
-                                            <span> Call for Table Service </span>
+                                            <div class="hide whiteBackgroup textUp animated zoomIn slower" id="textR">
+                                                <span> Call for Table Service </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text1Up animated zoomIn slower" id="textR1">
+                                                <span> Chef'Special </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text2Up animated zoomIn slower" id="textR2">
+                                                <span> Today's Menu </span>
+                                            </div>
+                                            <div class="hide whiteBackgroup text3Up animated zoomIn slower" id="textR3">
+                                                <span> We know your Taste </span>
+                                            </div>
+                                            <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
                                         </div>
-                                        <div class="hide whiteBackgroup text1Up animated zoomIn slower" id="textR1">
-                                            <span> Chef'Special </span>
-                                        </div>
-                                        <div class="hide whiteBackgroup text2Up animated zoomIn slower" id="textR2">
-                                            <span> Today's Menu </span>
-                                        </div>
-                                        <div class="hide whiteBackgroup text3Up animated zoomIn slower" id="textR3">
-                                            <span> We know your Taste </span>
-                                        </div>
-                                        <img src="../../touch/images/tableDown.png" class="animated rotateIn slower">
-                                    </div>
                                     </div>
                                     <div id="umenu1" class="hide">
                                         <div class="uchefImg animated zoomIn slower">
@@ -83,6 +83,98 @@
                                              <% }); %>   
 
                                        </div>
+                                    </div>
+                                    <div id="umenu2" class="hide">
+                                        <div class="animated zoomIn slower">
+                                            <img src="../../touch/images/backText.png" class="hide animated rotateIn slower" width="50%" id="uBackImg" >
+                                        </div>
+                                        <img src="../../touch/images/menu-ins-up.png" class="umenu2Img hide" id="umenu2Img">
+                                        <img src="../../touch/images/menu-ins.png" class="umenu2Img1 hide" id="umenu2Img1">
+                                        <div class="questionDiv hide" id="questionDiv">
+                                            <div>
+                                                <h3> What would you like?</h3>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques1Opt1">
+                                                    <h3> A. Veg </h3>
+                                                </div>
+                                                <div class="option2" id="Ques1Opt2">
+                                                    <h3> B. Non Veg </h3>
+                                                </div>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques1Opt3">
+                                                    <h3> C. Mix </h3>
+                                                </div>
+                                                <div class="option2" id="Ques1Opt4">
+                                                    <h3> D. Fast Food  </h3>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary nextBtn" id="nextBtn"> Next </button>
+                                        </div>
+                                        <div class="questionDiv hide" id="question1Div">
+                                            <div>
+                                                <h3> Tell us about you </h3>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques2Opt1">
+                                                    <h3> A. Dieting </h3>
+                                                </div>
+                                                <div class="option2" id="Ques2Opt2">
+                                                    <h3> B. Cheese </h3>
+                                                </div>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques2Opt3">
+                                                    <h3> C. Simple </h3>
+                                                </div>
+                                                <div class="option2" id="Ques2Opt4">
+                                                    <h3> D. All  </h3>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary nextBtn" id="nextBtn1"> Next </button>
+                                        </div>
+                                        <div class="questionDiv hide" id="question2Div">
+                                            <div>
+                                                <h3> Select your favourite starter </h3>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques3Opt1">
+                                                    <h3> A. Soup </h3>
+                                                </div>
+                                                <div class="option2" id="Ques3Opt2">
+                                                    <h3> B. Noodles </h3>
+                                                </div>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques3Opt3">
+                                                    <h3> C. Salad </h3>
+                                                </div>
+                                                <div class="option2" id="Ques3Opt4">
+                                                    <h3> D. All  </h3>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary nextBtn" id="nextBtn2"> Next </button>
+                                        </div>
+                                        <div class="questionDiv hide" id="question3Div">
+                                            <div>
+                                                <h3> Your Selected Options </h3>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques4Opt1">
+                                                    <h3> Pizza </h3>
+                                                </div>
+                                                <div class="option2" id="Ques4Opt2">
+                                                    <h3> Pepsi </h3>
+                                                </div>
+                                            </div>
+                                            <div class="optionDiv">
+                                                <div class="option1" id="Ques4Opt3">
+                                                    <h3> Noodles </h3>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-success nextBtn" id="nextBtn2"> Checkout </button>
+                                        </div>
                                     </div>
                                 </div>  
                             </div>
@@ -149,6 +241,98 @@
 
                                                 </div>
                                             
+                                        </div>
+                                        <div id="menu2" class="hide">
+                                            <div class="animated zoomIn slower">
+                                                <img src="../../touch/images/backText.png" class="hide animated rotateIn slower" width="50%" id="backImgDown" >
+                                            </div>
+                                            <img src="../../touch/images/menu-ins-up.png" class="menu2Img hide" id="menu2Img">
+                                            <img src="../../touch/images/menu-ins.png" class="menu2Img1 hide" id="menu2Img1">
+                                            <div class="questionDivDown hide" id="questionDivDown">
+                                                <div>
+                                                    <h3> Select your favourite dish </h3>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques1Opt1Down">
+                                                        <h3> A. Pasta </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques1Opt2Down">
+                                                        <h3> B. Pizza</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques1Opt3Down">
+                                                        <h3> C. Burger </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques1Opt4Down">
+                                                        <h3> D. All  </h3>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary nextBtn" id="nextBtnDown"> Next </button>
+                                            </div>
+                                            <div class="questionDivDown hide" id="question1DivDown">
+                                                <div>
+                                                    <h3> Select your favourite drink </h3>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques2Opt1Down">
+                                                        <h3> A. Cola </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques2Opt2Down">
+                                                        <h3> B. Pepsi </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques2Opt3Down">
+                                                        <h3> C. Fanta </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques2Opt4Down">
+                                                        <h3> D. All  </h3>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary nextBtn" id="nextBtn1Down"> Next </button>
+                                            </div>
+                                            <div class="questionDivDown hide" id="question2DivDown">
+                                                <div>
+                                                    <h3> Select your favourite starter </h3>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques3Opt1Down">
+                                                        <h3> A. Soup </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques3Opt2Down">
+                                                        <h3> B. Noodles </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques3Opt3Down">
+                                                        <h3> C. Salad </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques3Opt4Down">
+                                                        <h3> D. All  </h3>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary nextBtn" id="nextBtn2Down"> Next </button>
+                                            </div>
+                                            <div class="questionDivDown hide" id="question3DivDown">
+                                                <div>
+                                                    <h3> Your Selected Options </h3>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques4Opt1">
+                                                        <h3> Pizza </h3>
+                                                    </div>
+                                                    <div class="option2" id="Ques4Opt2">
+                                                        <h3> Pepsi </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="optionDiv">
+                                                    <div class="option1" id="Ques4Opt3">
+                                                        <h3> Noodles </h3>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-success nextBtn" id="nextBtn2"> Checkout </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> 
@@ -342,7 +526,6 @@
         })
 
         $('#textR1').click(() => {
-       
             $('#umenu').addClass('hide')
             $('#umenu1').removeClass('hide')
             setTimeout(() => {
@@ -369,6 +552,199 @@
             }, 1500)
         });
 
+        $('#textR3').click(() => {
+            $('#umenu').addClass('hide');
+            $('#umenu2').removeClass('hide');
+            $('#uBackImg').removeClass('hide');
+            setTimeout(() => {
+                $('#umenu2Img').removeClass('hide')
+                $('#umenu2Img').addClass('animated zoomIn slower')
+            }, 1500)
+            setTimeout(() => {
+                $('#umenu2Img1').removeClass('hide')
+                $('#umenu2Img1').addClass('animated zoomIn slower');
+            }, 2000)
+            setTimeout(() => {
+                $('#questionDiv').removeClass('hide');
+                $('#questionDiv').addClass('animated fadeInUp slower');
+            }, 3500)
+        })
+
+        $('#uBackImg').click(() => {
+            $('#umenu2').addClass('hide');
+            $('#umenu').removeClass('hide');
+            $('#questionDiv').addClass('hide');
+            $('#question1Div').addClass('hide');
+            $('#question2Div').addClass('hide');
+            $('#question3Div').addClass('hide');
+        })
+
+        $('#backImgDown').click(() => {
+            $('#menu2').addClass('hide');
+            $('#menu').removeClass('hide');
+        })
+
+        $('#text3').click(() => {
+            $('#menu').addClass('hide');
+            $('#menu2').removeClass('hide');
+            $('#backImgDown').removeClass('hide');
+            setTimeout(() => {
+                $('#menu2Img').removeClass('hide')
+                $('#menu2Img').addClass('animated zoomIn slower')
+            }, 1500)
+            setTimeout(() => {
+                $('#menu2Img1').removeClass('hide')
+                $('#menu2Img1').addClass('animated zoomIn slower');
+            }, 2000)
+            setTimeout(() => {
+                $('#questionDivDown').removeClass('hide');
+                $('#questionDivDown').addClass('animated fadeInUp slower');
+            }, 3500)
+        })
+
+        $('#Ques1Opt1').click(() => {
+            $('#Ques1Opt1').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt2').click(() => {
+            $('#Ques1Opt2').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt3').click(() => {
+            $('#Ques1Opt3').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt4').click(() => {
+            $('#Ques1Opt4').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt1Down').click(() => {
+            $('#Ques1Opt1Down').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt2Down').click(() => {
+            $('#Ques1Opt2Down').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt3Down').click(() => {
+            $('#Ques1Opt3Down').addClass('activeOpt')
+        })
+
+        $('#Ques1Opt4Down').click(() => {
+            $('#Ques1Opt4Down').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt1').click(() => {
+            $('#Ques2Opt1').addClass('activeOpt')
+        })
+        
+        $('#Ques2Opt2').click(() => {
+            $('#Ques2Opt2').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt3').click(() => {
+            $('#Ques2Opt3').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt4').click(() => {
+            $('#Ques2Opt4').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt1Down').click(() => {
+            $('#Ques2Opt1Down').addClass('activeOpt')
+        })
+        
+        $('#Ques2Opt2Down').click(() => {
+            $('#Ques2Opt2Down').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt3Down').click(() => {
+            $('#Ques2Opt3Down').addClass('activeOpt')
+        })
+
+        $('#Ques2Opt4Down').click(() => {
+            $('#Ques2Opt4Down').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt1').click(() => {
+            $('#Ques3Opt1').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt2').click(() => {
+            $('#Ques3Opt2').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt3').click(() => {
+            $('#Ques3Opt3').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt4').click(() => {
+            $('#Ques3Opt4').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt1Down').click(() => {
+            $('#Ques3Opt1Down').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt2Down').click(() => {
+            $('#Ques3Opt2Down').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt3Down').click(() => {
+            $('#Ques3Opt3Down').addClass('activeOpt')
+        })
+
+        $('#Ques3Opt4Down').click(() => {
+            $('#Ques3Opt4Down').addClass('activeOpt')
+        })
+
+        $('#Ques4Opt1').click(() => {
+            $('#Ques4Opt1').addClass('activeOpt')
+        })
+
+        $('#Ques4Opt2').click(() => {
+            $('#Ques4Opt2').addClass('activeOpt')
+        })
+
+        $('#Ques4Opt3').click(() => {
+            $('#Ques4Opt3').addClass('activeOpt')
+        })
+
+        $('#nextBtn').click(() =>{
+            $('#questionDiv').addClass('hide');
+            $('#question1Div').removeClass('hide');
+            $('#question1Div').addClass('animated fadeInUp slower');
+        });
+
+        $('#nextBtnDown').click(() =>{
+            $('#questionDivDown').addClass('hide');
+            $('#question1DivDown').removeClass('hide');
+            $('#question1DivDown').addClass('animated fadeInUp slower');
+        });
+
+        $('#nextBtn1').click(() =>{
+            $('#question1Div').addClass('hide');
+            $('#question2Div').removeClass('hide');
+            $('#question2Div').addClass('animated fadeInUp slower');
+        });
+
+        $('#nextBtn1Down').click(() =>{
+            $('#question1DivDown').addClass('hide');
+            $('#question2DivDown').removeClass('hide');
+            $('#question2DivDown').addClass('animated fadeInUp slower');
+        });
+
+        $('#nextBtn2').click(() =>{
+            $('#question2Div').addClass('hide');
+            $('#question3Div').removeClass('hide');
+            $('#question3Div').addClass('animated fadeInUp slower');
+        });
+
+        $('#nextBtn2Down').click(() =>{
+            $('#question2DivDown').addClass('hide');
+            $('#question3DivDown').removeClass('hide');
+            $('#question3DivDown').addClass('animated fadeInUp slower');
+        });
 
 
         $(".parent").click(function(){

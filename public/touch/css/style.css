@@ -98,6 +98,103 @@ body {
     top: 5%;
     right: 0%;
 }
+#umenu2 {
+    position: absolute;
+    top: 2%;
+    left: 0%;
+    width: 100%;
+}
+
+#menu2{
+    position: absolute;
+    top: 2%;
+    left: -40%;
+    width: 100%;
+}
+
+#uBackImg {
+    position: absolute;
+    right: 50%;
+}
+
+.umenu2Img {
+    width: 60%;
+    z-index: -1;
+    position: absolute;
+    left: 35%;
+}
+
+.menu2Img {
+    width: 110% !important;
+    z-index: -1;
+    position: absolute;
+    left: 77%;
+}
+
+.menu2Img1 {
+    width: 110% !important;
+    position: absolute;
+    left: 85%;
+    z-index: -11;
+}
+
+.umenu2Img1 {
+    width: 60%;
+    position: absolute;
+    left: 40%;
+    z-index: -11;
+}
+.questionDiv {
+    position: fixed;
+    left: 42%;
+    top: 30%;
+    width: 48%;
+    color: white;
+}
+.questionDivDown {
+    color: white;
+    position: fixed;
+    left: 41%;
+    top: 55%;
+}
+
+#backImgDown {
+    left: 5%;
+    position: absolute;
+}
+
+.optionDiv{
+    color: white;
+    display: flex;
+}
+.activeOpt{
+    background-color: #0069D9;
+    color: white;
+}
+.option1{
+    width: 100%;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 5%;
+    padding: 2%;
+    margin-right: 5%;
+}
+.option2{
+    width: 100%;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 5%;
+    padding: 2%;
+}
+.nextBtn {
+    float: right;
+    position: absolute;
+    top: 110%;
+    left: 60%;
+}
+
 .addToCartButton{
     padding: 2px;
     border: 2px solid #ffffff6b;
