@@ -1,0 +1,217 @@
+<% include includes/header.ejs %>
+<style>
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  width: 30%;
+  height: 70vh;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 12px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 70vh;
+    color: white;
+}
+.resImg {
+    width: 100%;
+}
+.tempDiv {
+    border: 1px solid #dedede;
+    height: 10vh;
+    border-radius: 170px;
+    padding: 4%;
+    margin: 5%;
+    display: flex;
+    width: 65%;
+}
+.fa-plus {
+    font-size: 3rem;
+}
+.fa-minus {
+    font-size: 3rem;
+}
+.count {
+    width: 65%;
+    text-align: center;
+}
+.count h1 {
+    font-size: 3rem;
+}
+.musicBox {
+    background-color: transparent;
+    color: white;
+    width: 65%;
+    font-size: 2rem;
+}
+</style>
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+            <h1 style="font-size:4em; color:white;" class="font-weight-light">Settings</h1>
+        </div>
+        </div>
+    </div>
+</header>
+<div class="container mainDiv">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, 'env')" id="defaultOpen">Change Environment </button>
+                <button class="tablinks" onclick="openCity(event, 'back')">Change Background</button>
+                <button class="tablinks" onclick="openCity(event, 'tmp')">Change Temperature</button>
+            </div>
+              
+              <div id="env" class="tabcontent">
+                <h3>Change Environment </h3>
+                <div class="form-group">
+                    <select class="form-control" id="music">
+                        <option value="0">Change Music</option>
+                        <option value="light">Light </option>
+                        <option value="pop">Pop</option>
+                        <option value="hiphop">Hip Hop</option>
+                        <option value="rock">Rock</option>
+                        <option value="clasic">Clasic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="music">
+                        <option value="0">Change Lights</option>
+                        <option value="light"> Disco </option>
+                        <option value="pop"> Normal </option>
+                        <option value="hiphop"> Party </option>
+                        <option value="rock"> Club </option>
+                    </select>
+                </div>
+                <!-- <select name="music" id="music" class="musicBox">
+                    <option value="0">Change Music</option>
+                    <option value="light">Light </option>
+                    <option value="pop">Pop</option>
+                    <option value="hiphop">Hip Hop</option>
+                    <option value="rock">Rock</option>
+                    <option value="clasic">Clasic</option>
+                </select> -->
+                <br />
+                <br />
+                <!-- <select name="lights" id="lights" class="musicBox">
+                    <option value="0">Change Lights</option>
+                    <option value="light"> Disco </option>
+                    <option value="pop"> Normal </option>
+                    <option value="hiphop"> Party </option>
+                    <option value="rock"> Club </option>
+                </select> -->
+              </div>
+              
+              <div id="back" class="tabcontent">
+                <h3>Change Background</h3>
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <img src="/touch/images/1.jpg" class="resImg">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/touch/images/2.png" class="resImg">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/touch/images/3.jpg" class="resImg">
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <img src="/touch/images/4.jpg" class="resImg">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/touch/images/5.jpg" class="resImg">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/touch/images/6.jpg" class="resImg">
+                    </div>
+                </div>
+              </div>
+              
+              <div id="tmp" class="tabcontent">
+                <h3>Change Temperature</h3>
+                <div class="row">
+                   <div class="container">
+                       <div class="tempDiv">
+                            <i class="fas fa-plus" id="plusIcon" ></i>
+                            <div class="count">
+                                <h1 id="count">  </h1> 
+                            </div>
+                            <i class="fas fa-minus" id="minusIcon"></i>
+                       </div>
+                   </div>
+                </div>
+              </div>              
+        </div>
+    </div>
+</div>
+
+<% include includes/footer.ejs %>
+
+<script>
+    var cont = 20;
+    $('#count').html(cont);
+    $('#plusIcon').click(() => {
+        let count1 = $('#count').html();
+        console.log('count from html :: ', count1)
+        const res = parseInt(count1) + 1;
+        console.log('count after plus', res)
+        $('#count').html(res);
+    })
+
+    $('#minusIcon').click(() => {
+        let count1 = $('#count').html();
+        console.log('count from html :: ', count1)
+        const res = parseInt(count1) - 1;
+        console.log('count after plus', res)
+        $('#count').html(res);
+    })
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = $(".tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = $(".tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+</script>

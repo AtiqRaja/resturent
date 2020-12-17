@@ -118,6 +118,10 @@ app.get("/news", (req, res) => {
     res.render('website/news');
 });
 
+app.get("/settings", (req, res) => {
+    res.render('website/settings');
+});
+
 app.get("/games", (req, res) => {
     res.render('website/games');
 });

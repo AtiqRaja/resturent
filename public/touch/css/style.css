@@ -93,6 +93,9 @@ body {
 .floatRight {
     float: right;
 }
+.floatLeft {
+    float: left;
+}
 .resetDiv {
     position: absolute;
     top: 5%;
